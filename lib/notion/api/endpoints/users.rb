@@ -16,8 +16,11 @@ module Notion
 
         #
         # Returns a paginated list of User objects for the workspace.
-        # @option options [Object] :start_cursor
-        # Paginate through collections of data by setting the cursor parameter to a start_cursor attribute returned by a previous request's next_cursor. Default value fetches the first "page" of the collection. See pagination for more detail.
+        # @option options [UUID] :start_cursor
+        # Paginate through collections of data by setting the cursor parameter
+        # to a start_cursor attribute returned by a previous request's next_cursor.
+        # Default value fetches the first "page" of the collection.
+        # See pagination for more detail.
         def users_list(options = {})
           if block_given?
             Pagination::Cursor.new(self, :users_list, options).each do |page|
