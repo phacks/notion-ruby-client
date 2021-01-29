@@ -21,8 +21,8 @@ module Notion
       private
 
       def request(method, path, options)
-        options = options.merge(token: token)
         response = connection.send(method) do |request|
+          request.headers['Authorization'] = "Bearer #{token}"
           case method
           when :get, :delete
             request.url(path, options)

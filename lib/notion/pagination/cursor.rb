@@ -23,7 +23,7 @@ module Notion
           next_cursor = nil
           retry_count = 0
           loop do
-            query = { limit: client.default_page_size }.merge(params).merge(cursor: next_cursor)
+            query = { limit: client.default_page_size }.merge(params).merge(start_cursor: next_cursor)
             begin
               response = client.send(verb, query)
             rescue Notion::Api::Errors::TooManyRequestsError => e
@@ -35,9 +35,9 @@ module Notion
               next
             end
             yield response
-            break unless response.body.has_more
+            break unless response.has_more
 
-            next_cursor = response.body.next_cursor
+            next_cursor = response.next_cursor
             break if next_cursor.nil? || next_cursor == ''
 
             retry_count = 0
