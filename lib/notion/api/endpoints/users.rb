@@ -16,6 +16,7 @@ module Notion
 
         #
         # Returns a paginated list of User objects for the workspace.
+        #
         # @option options [UUID] :start_cursor
         # Paginate through collections of data by setting the cursor parameter
         # to a start_cursor attribute returned by a previous request's next_cursor.
@@ -27,7 +28,7 @@ module Notion
               yield page
             end
           else
-            get("users?start_cursor=#{options[:start_cursor]}")
+            get("users", options)
           end
         end
       end
