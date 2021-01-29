@@ -6,7 +6,6 @@ require_relative 'notion/config'
 # Messages
 require 'hashie'
 require_relative 'notion/messages/message'
-require_relative 'notion/messages/formatting'
 
 # Web API
 require 'faraday'
