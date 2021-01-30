@@ -6,6 +6,10 @@ module Notion
         request(:get, path, options)
       end
 
+      def patch(path, options = {})
+        request(:patch, path, options)
+      end
+
       def post(path, options = {})
         request(:post, path, options)
       end
@@ -26,9 +30,10 @@ module Notion
           case method
           when :get, :delete
             request.url(path, options)
-          when :post, :put
+          when :post, :put, :patch
+            request.headers['Content-Type'] = 'application/json'
             request.path = path
-            request.body = options unless options.empty?
+            request.body = options.to_json unless options.empty?
           end
           request.options.merge!(options.delete(:request)) if options.key?(:request)
         end
