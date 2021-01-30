@@ -6,19 +6,18 @@ module Notion
         def on_complete(env)
           raise Notion::Api::Errors::TooManyRequests, env.response if env.status == 429
 
-          return unless env.success?
+          return if env.success?
 
           body = env.body
           return unless body
-          return if env.status == 200
 
           error_code = body['code']
           error_message = body['message']
-          error_message = body['details']
+          error_details = body['details']
 
           error_class = Notion::Api::Errors::ERROR_CLASSES[error_code]
           error_class ||= Notion::Api::Errors::NotionError
-          raise error_class.new(error_message, env.response)
+          raise error_class.new(error_message, error_details, env.response)
         end
 
         def call(env)

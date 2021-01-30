@@ -5,8 +5,8 @@ module Notion
       class NotionError < ::Faraday::Error
         attr_reader :response
 
-        def initialize(message, response = nil)
-          super message
+        def initialize(message, details, response = nil)
+          super("#{message} #{details}")
           @response = response
         end
       end
