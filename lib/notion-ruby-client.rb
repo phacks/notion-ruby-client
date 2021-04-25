@@ -1,17 +1,16 @@
 # frozen_string_literal: true
+require 'faraday'
+require 'faraday_middleware'
+require 'json'
+require 'logger'
+require 'hashie'
+
 require_relative 'notion/version'
 require_relative 'notion/logger'
 require_relative 'notion/config'
 
 # Messages
-require 'hashie'
 require_relative 'notion/messages/message'
-
-# Web API
-require 'faraday'
-require 'faraday_middleware'
-require 'json'
-require 'logger'
 
 require_relative 'notion/config'
 require_relative 'notion/api/errors/notion_error'

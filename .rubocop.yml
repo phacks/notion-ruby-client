@@ -1,0 +1,37 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+    - lib/notion/web/api/notion-api-ref/**/*
+    - lib/notion/web/api/endpoints/* # Auto-generated
+    - lib/notion/web/api/errors.rb # Auto-generated
+    - spec/notion/web/api/endpoints/* # Auto-generated
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 250
+
+Layout/LineLength:
+  Max: 128
+
+Style/Documentation:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - lib/notion-ruby-client.rb # Required to match gemspec name

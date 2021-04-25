@@ -48,3 +48,5 @@ module Notion
     end
   end
 end
+
+Notion::Config.reset

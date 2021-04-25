@@ -1,0 +1,4 @@
+example_id                          | status | run_time        |
+----------------------------------- | ------ | --------------- |
+./spec/notion/config_spec.rb[1:1:1] | passed | 0.00029 seconds |
+./spec/notion/version_spec.rb[1:1]  | passed | 0.00033 seconds |
