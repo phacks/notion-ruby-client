@@ -23,5 +23,18 @@ RSpec.describe Notion::Api::Endpoints::Databases do
       end
       expect(pages.size).to be >= 1
     end
+
+    it 'lists', vcr: { cassette_name: 'databases_list' } do
+      response = client.databases_list
+      expect(response.results.length).to be >= 1
+    end
+
+    it 'paginated lists', vcr: { cassette_name: 'paginated_databases_list' } do
+      databases = []
+      client.databases_list(limit: 1) do |page|
+        databases.concat page.results
+      end
+      expect(databases.size).to be >= 1
+    end
   end
 end

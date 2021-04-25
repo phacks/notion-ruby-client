@@ -54,6 +54,24 @@ module Notion
             post("databases/#{options[:id]}/query", options)
           end
         end
+
+        #
+        # Returns a paginated list of Databases objects for the workspace.
+        #
+        # @option options [UUID] :start_cursor
+        # Paginate through collections of data by setting the cursor parameter
+        # to a start_cursor attribute returned by a previous request's next_cursor.
+        # Default value fetches the first "page" of the collection.
+        # See pagination for more detail.
+        def databases_list(options = {})
+          if block_given?
+            Pagination::Cursor.new(self, :databases_list, options).each do |page|
+              yield page
+            end
+          else
+            get('databases', options)
+          end
+        end
       end
     end
   end

@@ -121,6 +121,18 @@ Get a single Database:
 client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
 ```
 
+Lists databases:
+
+```ruby
+client.databases_list # retrieves the first page
+
+client.databases_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.databases_list do |page|
+  # paginate through all databases
+end
+```
+
 #### Pages
 
 Create a page:
