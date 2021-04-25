@@ -26,7 +26,7 @@ module Notion
             query = next_cursor.nil? ? params : params.merge(start_cursor: next_cursor)
             begin
               response = client.send(verb, query)
-            rescue Notion::Api::Errors::TooManyRequestsError => e
+            rescue Notion::Api::Errors::TooManyRequests => e
               raise e if retry_count >= max_retries
 
               client.logger.debug("#{self.class}##{__method__}") { e.to_s }

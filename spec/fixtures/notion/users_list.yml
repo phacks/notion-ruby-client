@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
-      - Notion Ruby Client/0.0.3
+      - Notion Ruby Client/0.0.4
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Accept-Encoding:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 20:03:03 GMT
+      - Sun, 25 Apr 2021 21:00:06 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=df6433c2b04ad3de33a87c90c3938496c1619380982; expires=Tue, 25-May-21
-        20:03:02 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=22526945-7fa7-4595-a66c-5d52409b40e5; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:49:43 GMT; Secure
+      - __cfduid=d8bd1f2559197f7cbe522dc8d2a13cf771619384405; expires=Tue, 25-May-21
+        21:00:05 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=a30325ff-c789-4096-a739-ba51b79eea5b; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 22:46:46 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -117,17 +117,17 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac39ebfb00003312b4217000000001'
+      - '09ac6e27c800000853aea0c000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a2c2659783312-CDG
+      - 645a7fb93dac0853-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"user","id":"7ee614aa-0542-421d-b8aa-b14adf120642","name":"Arthur
         Levoyer","avatar_url":"https://lh6.googleusercontent.com/-Y62UK1QjtV8/AAAAAAAAAAI/AAAAAAAAACk/3PgWyczXM8o/photo.jpg?sz=50","type":"person","person":{"email":"arthurl@bam.tech"}},{"object":"user","id":"a8da8d30-c858-4c3d-87ad-3f2d477bd98d","name":"Nicolas
         Goutay","avatar_url":"https://s3-us-west-2.amazonaws.com/public.notion-static.com/5f9b5c65-a7ed-4fc5-983a-6c999b7c2208/Copy_of_P1222454.jpg","type":"person","person":{"email":"nicolas@orbit.love"}},{"object":"user","id":"f2e67536-c037-4dd5-97f5-8ed9d23a4dbd","name":"LeBot","avatar_url":null,"type":"bot","bot":{}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 25 Apr 2021 20:03:03 GMT
+  recorded_at: Sun, 25 Apr 2021 21:00:06 GMT
 recorded_with: VCR 6.0.0

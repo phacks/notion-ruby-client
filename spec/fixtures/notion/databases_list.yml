@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
-      - Notion Ruby Client/0.0.3
+      - Notion Ruby Client/0.0.4
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Accept-Encoding:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 20:07:48 GMT
+      - Sun, 25 Apr 2021 21:00:00 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d0257423f9797cda331ed4aa8ababb64b1619381267; expires=Tue, 25-May-21
-        20:07:47 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=6e0f4867-729e-4a15-bee5-c3d7283a8f0d; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:54:27 GMT; Secure
+      - __cfduid=ddf6666b47e733887d5b2a492ee98807c1619384400; expires=Tue, 25-May-21
+        21:00:00 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=0f5a0e33-1181-41ca-96bf-22c530d86317; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 22:46:40 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -117,17 +117,17 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac3e437d00000814512d8000000001'
+      - '09ac6e116e00000853a2a59000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a3318cbfa0814-CDG
+      - 645a7f957fc50853-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"database","id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T19:59:00.000Z","title":[{"type":"text","text":{"content":"A
         Notion database","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
         Notion database","href":null}],"properties":{"Tags":{"id":"yu]\\","type":"multi_select","multi_select":{"options":[]}},"Name":{"id":"title","type":"title","title":{}}}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 25 Apr 2021 20:07:48 GMT
+  recorded_at: Sun, 25 Apr 2021 21:00:00 GMT
 recorded_with: VCR 6.0.0

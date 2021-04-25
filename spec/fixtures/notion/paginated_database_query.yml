@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json; charset=utf-8
       User-Agent:
-      - Notion Ruby Client/0.0.3
+      - Notion Ruby Client/0.0.4
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Content-Type:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 20:04:36 GMT
+      - Sun, 25 Apr 2021 21:00:00 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,10 +31,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d4fa9d13076aae0f37b444c2ec003ded11619381075; expires=Tue, 25-May-21
-        20:04:35 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=2478d197-9f17-4b18-a0d8-5dcd1a19e9c1; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:51:16 GMT; Secure
+      - __cfduid=d2a4deba9394e6bd598acff673b4dc26a1619384399; expires=Tue, 25-May-21
+        20:59:59 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=8c6f9137-4edd-445e-8fa5-5377f08b641f; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 22:46:40 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -113,27 +113,23 @@ http_interactions:
         https://platform.twitter.com https://ton.twimg.com; frame-src https: http:;
         media-src https: http:'
       Etag:
-      - W/"89d-C7cNeii1bERUyCX6H2tZiMoMFls"
+      - W/"256-GLaRmcrB0MMJquGjfaHJ2Jl5ecg"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac3b56650000cd9b22041000000001'
+      - '09ac6e0e370000084718196000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a2e6a389dcd9b-CDG
+      - 645a7f9059c90847-CDG
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[{"object":"page","id":"638fc449-b670-4c32-80da-da05fb833814","created_time":"2021-04-25T20:03:01.638Z","last_edited_time":"2021-04-25T20:03:01.639Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Another
-        Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
-        Notion page","href":null}]}}},{"object":"page","id":"d064b09a-6505-4e7f-b90a-16d4e8ebfc4e","created_time":"2021-04-25T19:53:05.460Z","last_edited_time":"2021-04-25T19:53:05.461Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Another
-        Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
-        Notion page","href":null}]}}},{"object":"page","id":"e9f5f54e-9df6-4ac6-b716-ecf671e3f8b6","created_time":"2021-01-30T11:03:23.390Z","last_edited_time":"2021-01-30T11:03:23.390Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Hola!","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Hola!","href":null}]}}},{"object":"page","id":"723578f1-6e51-450c-8ee1-09158c19fd4c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T20:03:02.558Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
+      string: '{"object":"list","results":[{"object":"page","id":"723578f1-6e51-450c-8ee1-09158c19fd4c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T20:41:00.000Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
         Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
         Notion page","href":null}]}}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 25 Apr 2021 20:04:36 GMT
+  recorded_at: Sun, 25 Apr 2021 21:00:00 GMT
 recorded_with: VCR 6.0.0
