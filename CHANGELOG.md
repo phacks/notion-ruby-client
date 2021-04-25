@@ -1,8 +1,12 @@
+### 0.0.5 (2020-04-25)
+
+- Added support for Blocks endpoints
+
 ### 0.0.4 (2020-04-25)
 
 - Added specs and a CI process with GitHub Actions
-- Add support for GET /databases, POST /databases/<:id>/query endpoints
-- Add support for `content` when creating a page
+- Added support for GET /databases, POST /databases/<:id>/query endpoints
+- Added support for `content` when creating a page
 
 ### 0.0.3 (2020-01-30)
 
