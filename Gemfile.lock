@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion-ruby-client (0.0.3)
+    notion-ruby-client (0.0.4)
       faraday (>= 1.0)
       faraday_middleware
       hashie
