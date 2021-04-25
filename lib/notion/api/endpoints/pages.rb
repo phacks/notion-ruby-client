@@ -34,6 +34,9 @@ module Notion
         #   the database this page belongs to. key string Name of a property as it
         #   appears in Notion, or property ID. value object Object containing a value
         #   specific to the property type, e.g. {"checkbox": true}.
+        #
+        # @option options [Object] :children
+        #   An optional array of Block objects representing the Page’s conent
         def create_page(options = {})
           throw ArgumentError.new('Required arguments :parent.database_id missing') if options.dig(:parent, :database_id).nil?
           post("pages", options)

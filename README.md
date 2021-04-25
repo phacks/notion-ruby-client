@@ -75,3 +75,119 @@ Get a single User:
 ```ruby
 client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
 ```
+
+#### Databases
+
+Gets a paginated array of Page objects contained in the requested database, filtered and ordered according to the filter and sort references provided in the request.
+
+```ruby
+client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')  # retrieves the first page
+
+client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.database_query((id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
+  # paginate through all pages
+end
+
+# Filter and sort the database
+sort = [
+  {
+    "property": "Last ordered",
+    "direction": "ascending"
+  }
+]
+filter = {
+  "or": [
+    {
+      "property": "In stock",
+      "checkbox": {
+        "equals": true
+      }
+    },
+    {
+      "property": "Cost of next trip",
+      "number": {
+        "greater_than_or_equal_to": 2
+      }
+    }
+  ]
+}
+client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, filter: filter)
+```
+
+Get a single Database:
+
+```ruby
+client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
+```
+
+#### Pages
+
+Create a page:
+
+```ruby
+properties = {
+  "Name": [
+    {
+      "text": {
+        "content": "Tuscan Kale"
+      }
+    }
+  ],
+  "Description": [
+    {
+      "text": {
+        "content": "A dark green leafy vegetable"
+      }
+    }
+  ],
+  "Food group": {
+    "name": "🥦 Vegetable"
+  },
+  "Price": 2.5
+}
+children = [
+  {
+    "object": "block",
+    "type": "heading_2",
+    "heading_2": {
+      "text": [{ "type": "text", "text": { "content": "Lacinato kale" } }]
+    }
+  },
+  {
+    "object": "block",
+    "type": "paragraph",
+    "paragraph": {
+      "text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
+            "link": { "url": "https://en.wikipedia.org/wiki/Lacinato_kale" }
+          }
+        }
+      ]
+    }
+  }
+]
+client.create_page(
+   parent: { database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0'},
+   properties: properties,
+   children: children
+)
+```
+
+Retrieve a page:
+
+```ruby
+client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+```
+
+Update page properties:
+
+```ruby
+properties = {
+  "In stock": true
+}
+client.update_page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
+```
