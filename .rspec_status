@@ -1,4 +1,7 @@
-example_id                          | status | run_time        |
------------------------------------ | ------ | --------------- |
-./spec/notion/config_spec.rb[1:1:1] | passed | 0.00034 seconds |
-./spec/notion/version_spec.rb[1:1]  | passed | 0.00028 seconds |
+example_id                                       | status | run_time        |
+------------------------------------------------ | ------ | --------------- |
+./spec/notion/api/endpoints/users_spec.rb[1:1:1] | passed | 0.01038 seconds |
+./spec/notion/api/endpoints/users_spec.rb[1:1:2] | passed | 0.00972 seconds |
+./spec/notion/api/endpoints/users_spec.rb[1:1:3] | passed | 0.00695 seconds |
+./spec/notion/config_spec.rb[1:1:1]              | passed | 0.00006 seconds |
+./spec/notion/version_spec.rb[1:1]               | passed | 0.00004 seconds |

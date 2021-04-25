@@ -4,7 +4,7 @@ RSpec.configure do |config|
     @old_token = Notion::Config.token
   end
   config.after do
-    Notion::Config.token = @old_token
     Notion::Config.reset
+    Notion::Config.token = @old_token
   end
 end
