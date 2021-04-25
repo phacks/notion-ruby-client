@@ -1,11 +1,12 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.notion.com/v1/users
+    method: patch
+    uri: https://api.notion.com/v1/pages/723578f1-6e51-450c-8ee1-09158c19fd4c
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"id":"723578f1-6e51-450c-8ee1-09158c19fd4c","properties":{"Name":[{"text":{"content":"A
+        Notion page"}}]}}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -13,6 +14,8 @@ http_interactions:
       - Notion Ruby Client/0.0.3
       Authorization:
       - Bearer <NOTION_API_TOKEN>
+      Content-Type:
+      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -21,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 19:53:08 GMT
+      - Sun, 25 Apr 2021 19:56:46 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -29,10 +32,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d6a7a0e859b0928386a986fc2b602ab721619380387; expires=Tue, 25-May-21
-        19:53:07 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=7405463b-b756-42c6-ba67-bd42c823f5f3; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:39:48 GMT; Secure
+      - __cfduid=dfdcb4ee0e0fdad3f01edcf185f9c16441619380605; expires=Tue, 25-May-21
+        19:56:45 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=21038ff7-3fc8-454d-8d3b-6a66add4bfe0; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 21:43:26 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -111,23 +114,23 @@ http_interactions:
         https://platform.twitter.com https://ton.twimg.com; frame-src https: http:;
         media-src https: http:'
       Etag:
-      - W/"2c7-9fGZ6Loa3izncqaW0AxZr7NvCPY"
+      - W/"214-URhrgJuHtHiTWa1f/FCGQbMEg74"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac30d601000032ac169aa000000001'
+      - '09ac342aee0000eda3c937f000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a1d9ccb8732ac-CDG
+      - 645a22f17c9deda3-CDG
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[{"object":"user","id":"7ee614aa-0542-421d-b8aa-b14adf120642","name":"Arthur
-        Levoyer","avatar_url":"https://lh6.googleusercontent.com/-Y62UK1QjtV8/AAAAAAAAAAI/AAAAAAAAACk/3PgWyczXM8o/photo.jpg?sz=50","type":"person","person":{"email":"arthurl@bam.tech"}},{"object":"user","id":"a8da8d30-c858-4c3d-87ad-3f2d477bd98d","name":"Nicolas
-        Goutay","avatar_url":"https://s3-us-west-2.amazonaws.com/public.notion-static.com/5f9b5c65-a7ed-4fc5-983a-6c999b7c2208/Copy_of_P1222454.jpg","type":"person","person":{"email":"nicolas@orbit.love"}},{"object":"user","id":"f2e67536-c037-4dd5-97f5-8ed9d23a4dbd","name":"LeBot","avatar_url":null,"type":"bot","bot":{}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 25 Apr 2021 19:53:08 GMT
+      string: '{"object":"page","id":"723578f1-6e51-450c-8ee1-09158c19fd4c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T19:56:46.292Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
+        Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
+        Notion page","href":null}]}}}'
+  recorded_at: Sun, 25 Apr 2021 19:56:47 GMT
 recorded_with: VCR 6.0.0
