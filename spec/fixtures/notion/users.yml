@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 19:53:09 GMT
+      - Sun, 25 Apr 2021 20:03:05 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d49e0455aaf539201ceb4c6ff049ce4f21619380389; expires=Tue, 25-May-21
-        19:53:09 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=7812df62-9aca-4573-b358-c736f2eb4b6f; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:39:49 GMT; Secure
+      - __cfduid=d80807191f23248080d5e5acd339ff1931619380984; expires=Tue, 25-May-21
+        20:03:04 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=245f5163-cb43-4cd1-b309-c20d51f87a2d; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 21:49:45 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -117,16 +117,16 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac30dcb00000ee03628b4000000001'
+      - '09ac39f2fa000032a76d159000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a1da77bbaee03-CDG
+      - 645a2c318c5332a7-CDG
     body:
       encoding: UTF-8
       string: '{"object":"user","id":"a8da8d30-c858-4c3d-87ad-3f2d477bd98d","name":"Nicolas
         Goutay","avatar_url":"https://s3-us-west-2.amazonaws.com/public.notion-static.com/5f9b5c65-a7ed-4fc5-983a-6c999b7c2208/Copy_of_P1222454.jpg","type":"person","person":{"email":"nicolas@orbit.love"}}'
-  recorded_at: Sun, 25 Apr 2021 19:53:09 GMT
+  recorded_at: Sun, 25 Apr 2021 20:03:05 GMT
 recorded_with: VCR 6.0.0

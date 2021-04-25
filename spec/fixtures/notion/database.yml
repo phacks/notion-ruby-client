@@ -1,12 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: patch
-    uri: https://api.notion.com/v1/pages/723578f1-6e51-450c-8ee1-09158c19fd4c
+    method: get
+    uri: https://api.notion.com/v1/databases/89b30a70-ce51-4646-ab4f-5fdcb1d5e76c
     body:
-      encoding: UTF-8
-      string: '{"id":"723578f1-6e51-450c-8ee1-09158c19fd4c","properties":{"Name":[{"text":{"content":"A
-        Notion page"}}]}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -14,8 +13,6 @@ http_interactions:
       - Notion Ruby Client/0.0.3
       Authorization:
       - Bearer <NOTION_API_TOKEN>
-      Content-Type:
-      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -24,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 20:03:02 GMT
+      - Sun, 25 Apr 2021 20:02:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,10 +29,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=de7229c444346afd88ac0b3f1a69b92761619380981; expires=Tue, 25-May-21
-        20:03:01 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=042a2e9b-cfd6-4e81-b8d1-50c93a7f9c77; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:49:42 GMT; Secure
+      - __cfduid=d5e0df600a1233f92c1f357af9276e5271619380978; expires=Tue, 25-May-21
+        20:02:58 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=814ceb26-ae12-47ae-9373-0575c54ce765; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 21:49:39 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -114,23 +111,23 @@ http_interactions:
         https://platform.twitter.com https://ton.twimg.com; frame-src https: http:;
         media-src https: http:'
       Etag:
-      - W/"214-NsvulZOLhJMm8amGC9TTFvwFx4A"
+      - W/"20f-NDWBFPc2tGeeFrAke368a5IhMtE"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac39e8c9000032c403b21000000001'
+      - '09ac39db52000008abd7abd000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a2c214c3732c4-CDG
+      - 645a2c0bba7708ab-CDG
     body:
       encoding: UTF-8
-      string: '{"object":"page","id":"723578f1-6e51-450c-8ee1-09158c19fd4c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T20:03:02.558Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
-        Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
-        Notion page","href":null}]}}}'
-  recorded_at: Sun, 25 Apr 2021 20:03:02 GMT
+      string: '{"object":"database","id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T19:59:00.000Z","title":[{"type":"text","text":{"content":"A
+        Notion database","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
+        Notion database","href":null}],"properties":{"Tags":{"id":"yu]\\","type":"multi_select","multi_select":{"options":[]}},"Name":{"id":"title","type":"title","title":{}}}}'
+  recorded_at: Sun, 25 Apr 2021 20:02:59 GMT
 recorded_with: VCR 6.0.0

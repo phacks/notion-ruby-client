@@ -51,7 +51,7 @@ module Notion
               yield page
             end
           else
-            post("databases/#{options[:id]}", options)
+            post("databases/#{options[:id]}/query", options)
           end
         end
       end

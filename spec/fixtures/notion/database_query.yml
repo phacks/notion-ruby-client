@@ -1,12 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: patch
-    uri: https://api.notion.com/v1/pages/723578f1-6e51-450c-8ee1-09158c19fd4c
+    method: post
+    uri: https://api.notion.com/v1/databases/89b30a70-ce51-4646-ab4f-5fdcb1d5e76c/query
     body:
       encoding: UTF-8
-      string: '{"id":"723578f1-6e51-450c-8ee1-09158c19fd4c","properties":{"Name":[{"text":{"content":"A
-        Notion page"}}]}}'
+      string: '{"id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"}'
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -24,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Apr 2021 20:03:02 GMT
+      - Sun, 25 Apr 2021 20:03:00 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,10 +31,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=de7229c444346afd88ac0b3f1a69b92761619380981; expires=Tue, 25-May-21
-        20:03:01 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
-      - notion_browser_id=042a2e9b-cfd6-4e81-b8d1-50c93a7f9c77; Domain=www.notion.so;
-        Path=/; Expires=Wed, 01 Jan 2053 21:49:42 GMT; Secure
+      - __cfduid=d59a829cc96ab0260b4c6ff8c683294cb1619380979; expires=Tue, 25-May-21
+        20:02:59 GMT; path=/; domain=.notion.com; HttpOnly; SameSite=Lax
+      - notion_browser_id=85116363-54f3-4d23-ae97-010b891d04c0; Domain=www.notion.so;
+        Path=/; Expires=Wed, 01 Jan 2053 21:49:39 GMT; Secure
       X-Dns-Prefetch-Control:
       - 'off'
       X-Frame-Options:
@@ -114,23 +113,25 @@ http_interactions:
         https://platform.twitter.com https://ton.twimg.com; frame-src https: http:;
         media-src https: http:'
       Etag:
-      - W/"214-NsvulZOLhJMm8amGC9TTFvwFx4A"
+      - W/"67c-4LMZdXoshsOPLoUuGMxTGRkhl9E"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '09ac39e8c9000032c403b21000000001'
+      - '09ac39de980000cd9335189000000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 645a2c214c3732c4-CDG
+      - 645a2c10ffe8cd93-CDG
     body:
       encoding: UTF-8
-      string: '{"object":"page","id":"723578f1-6e51-450c-8ee1-09158c19fd4c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T20:03:02.558Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
+      string: '{"object":"list","results":[{"object":"page","id":"d064b09a-6505-4e7f-b90a-16d4e8ebfc4e","created_time":"2021-04-25T19:53:05.460Z","last_edited_time":"2021-04-25T19:53:05.461Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Another
+        Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
+        Notion page","href":null}]}}},{"object":"page","id":"e9f5f54e-9df6-4ac6-b716-ecf671e3f8b6","created_time":"2021-01-30T11:03:23.390Z","last_edited_time":"2021-01-30T11:03:23.390Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Hola!","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Hola!","href":null}]}}},{"object":"page","id":"723578f1-6e51-450c-8ee1-09158c19fd4c","created_time":"2021-01-29T20:50:51.917Z","last_edited_time":"2021-04-25T19:56:46.292Z","parent":{"type":"database_id","database_id":"89b30a70-ce51-4646-ab4f-5fdcb1d5e76c"},"archived":false,"properties":{"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"A
         Notion page","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
-        Notion page","href":null}]}}}'
-  recorded_at: Sun, 25 Apr 2021 20:03:02 GMT
+        Notion page","href":null}]}}}],"next_cursor":null,"has_more":false}'
+  recorded_at: Sun, 25 Apr 2021 20:03:00 GMT
 recorded_with: VCR 6.0.0
