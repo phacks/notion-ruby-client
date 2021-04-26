@@ -203,3 +203,32 @@ properties = {
 }
 client.update_page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
 ```
+
+#### Blocks
+
+Retrieve children Block objects at the requested path:
+
+```ruby
+client.block_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+
+client.block_children(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.block_children_list do |page|
+  # paginate through all children
+end
+```
+
+Creates and appends new children blocks to the parent block in the requested path:
+
+```ruby
+children = [
+  {
+    "object": 'block',
+    "type": 'heading_2',
+    "heading_2": {
+      "text": [{ "type": 'text', "text": { "content": 'A Second-level Heading' } }]
+    }
+  }
+]
+client.block_append_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
+```
