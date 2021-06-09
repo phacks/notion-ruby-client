@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion-ruby-client (0.0.5)
+    notion-ruby-client (0.0.6)
       faraday (>= 1.0)
       faraday_middleware
       hashie
@@ -15,12 +15,16 @@ GEM
     crack (0.4.5)
       rexml
     diff-lcs (1.4.4)
-    faraday (1.4.1)
+    faraday (1.4.2)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
@@ -31,7 +35,7 @@ GEM
     jaro_winkler (1.5.4)
     multipart-post (2.1.1)
     parallel (1.20.1)
-    parser (3.0.1.0)
+    parser (3.0.1.1)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
     rainbow (3.0.0)
@@ -67,7 +71,7 @@ GEM
     timecop (0.9.4)
     unicode-display_width (1.7.0)
     vcr (6.0.0)
-    webmock (3.12.2)
+    webmock (3.13.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -88,4 +92,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.2.5
+   2.2.16
