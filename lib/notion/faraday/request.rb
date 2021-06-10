@@ -27,6 +27,7 @@ module Notion
       def request(method, path, options)
         response = connection.send(method) do |request|
           request.headers['Authorization'] = "Bearer #{token}"
+          request.headers['Notion-Version'] = Notion::NOTION_REQUEST_VERSION
           case method
           when :get, :delete
             request.url(path, options)

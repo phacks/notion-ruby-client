@@ -1,3 +1,7 @@
+### 0.0.6 (2021-06-09)
+
+- Added `Notion-Version` required header to all requests
+
 ### 0.0.5 (2020-04-25)
 
 - Added support for Blocks endpoints
