@@ -16,7 +16,7 @@ module Notion
         #   retrieve a page that has not been archived. Defaults to false.
         def page(options = {})
           throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
-          get("pages/#{options[:id]}?archived=#{options[:archived]}")
+          get("pages/#{options[:id]}")
         end
 
         #
