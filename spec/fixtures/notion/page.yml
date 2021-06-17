@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.notion.com/v1/pages/723578f1-6e51-450c-8ee1-09158c19fd4c?archived=
+    uri: https://api.notion.com/v1/pages/723578f1-6e51-450c-8ee1-09158c19fd4c
     body:
       encoding: US-ASCII
       string: ''
