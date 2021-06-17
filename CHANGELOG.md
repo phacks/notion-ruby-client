@@ -1,3 +1,7 @@
+### 0.0.7 (2021-06-17)
+
+- Fixes the query parameter for fetching a page resource
+
 ### 0.0.6 (2021-06-09)
 
 - Added `Notion-Version` required header to all requests
