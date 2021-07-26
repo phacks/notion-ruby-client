@@ -44,7 +44,7 @@ For Rails projects, the snippet above would go to `config/application.rb`.
 
 ### API Client
 
-#### Instanciating a new Notion API client
+#### Instantiating a new Notion API client
 
 ```ruby
 client = Notion::Client.new
