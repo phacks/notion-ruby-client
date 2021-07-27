@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 module Notion
-  VERSION = '0.0.7'
+  VERSION = '0.0.8'
   NOTION_REQUEST_VERSION = '2021-05-13'
 end

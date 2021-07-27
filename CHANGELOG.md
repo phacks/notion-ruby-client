@@ -1,3 +1,8 @@
+### 0.0.8 (2021-07-27)
+
+- Bump `Notion-Version` header to `2021-05-13` (@H0R15H0)
+- Add support for the new Create database endpoint (@H0R15H0)
+
 ### 0.0.7 (2021-06-17)
 
 - Fixes the query parameter for fetching a page resource
