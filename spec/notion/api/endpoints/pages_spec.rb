@@ -3,17 +3,28 @@ require 'spec_helper'
 
 RSpec.describe Notion::Api::Endpoints::Pages do
   let(:client) { Notion::Client.new }
-  let(:database_id) { '89b30a70-ce51-4646-ab4f-5fdcb1d5e76c' }
-  let(:page_id) { '723578f1-6e51-450c-8ee1-09158c19fd4c' }
+  let(:database_id) { 'ab7e7b22-7793-492a-ba6b-3295f8b19341' }
+  let(:page_id) { '2de466f0-9861-466b-9bc2-c987965da010' }
   let(:properties) do
     {
-      "Name": [
-        {
-          "text": {
-            "content": 'Another Notion page'
+      "Name": {
+        "title": [
+          {
+            "text": {
+              "content": 'Another Notion page'
+            }
           }
-        }
-      ]
+        ]
+      },
+      "Description": {
+        "rich_text": [
+          {
+            "text": {
+              "content": 'Page description'
+            }
+          }
+        ]
+      }
     }
   end
   let(:children) do

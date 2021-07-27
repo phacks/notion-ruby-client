@@ -4,6 +4,23 @@ require 'spec_helper'
 RSpec.describe Notion::Api::Endpoints::Databases do
   let(:client) { Notion::Client.new }
   let(:database_id) { '89b30a70-ce51-4646-ab4f-5fdcb1d5e76c' }
+  let(:page_id) { '7cbf38f8-5921-4422-bd3f-a647c3e2544b' }
+  let(:title) do
+    [
+      {
+        "text": {
+          "content": 'Another Notion database'
+        }
+      }
+    ]
+  end
+  let(:properties) do
+    {
+      "Name": {
+        "title": {}
+      }
+    }
+  end
 
   context 'databases' do
     it 'retrieves', vcr: { cassette_name: 'database' } do
@@ -14,6 +31,15 @@ RSpec.describe Notion::Api::Endpoints::Databases do
     it 'queries', vcr: { cassette_name: 'database_query' } do
       response = client.database_query(id: database_id)
       expect(response.results.length).to be >= 1
+    end
+
+    it 'creates', vcr: { cassette_name: 'create_database' } do
+      response = client.create_database(
+        parent: { page_id: page_id },
+        title: title,
+        properties: properties
+      )
+      expect(response.title.first.plain_text).to eql 'Another Notion database'
     end
 
     it 'paginated queries', vcr: { cassette_name: 'paginated_database_query' } do

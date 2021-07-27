@@ -133,26 +133,78 @@ client.databases_list do |page|
 end
 ```
 
+Create a Database:
+
+```ruby
+title = [
+  {
+    "type": "text",
+    "text": {
+      "content": "Grocery List",
+      "link": nil
+    }
+  }
+],
+properties = {
+  "Name": {
+    "title": {}
+  },
+  "Description": {
+    "rich_text": {}
+  },
+  "In stock": {
+    "checkbox": {}
+  },
+  "Food group": {
+    "select": {
+      "options": [
+        {
+          "name": "🥦Vegetable",
+          "color": "green"
+        },
+        {
+          "name": "🍎Fruit",
+          "color": "red"
+        },
+        {
+          "name": "💪Protein",
+          "color": "yellow"
+        }
+      ]
+    }
+  }
+}
+client.create_database(
+  parent: { page_id: '98ad959b-2b6a-4774-80ee-00246fb0ea9b' },
+  title: title,
+  properties: properties
+)
+```
+
 #### Pages
 
 Create a page:
 
 ```ruby
 properties = {
-  "Name": [
-    {
-      "text": {
-        "content": "Tuscan Kale"
+  "Name": {
+    "title": [
+      {
+        "text": {
+          "content": "Tuscan Kale"
+        }
       }
-    }
-  ],
-  "Description": [
-    {
-      "text": {
-        "content": "A dark green leafy vegetable"
+    ]
+  },
+  "Description": {
+    "rich_text": [
+      {
+        "text": {
+          "content": "A dark green leafy vegetable"
+        }
       }
-    }
-  ],
+    ]
+  },
   "Food group": {
     "name": "🥦 Vegetable"
   },
