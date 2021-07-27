@@ -1,19 +1,19 @@
 example_id                                           | status | run_time        |
 ---------------------------------------------------- | ------ | --------------- |
-./spec/notion/api/endpoints/blocks_spec.rb[1:1:1]    | passed | 0.03038 seconds |
-./spec/notion/api/endpoints/blocks_spec.rb[1:1:2]    | passed | 0.03416 seconds |
-./spec/notion/api/endpoints/blocks_spec.rb[1:1:3]    | passed | 0.01772 seconds |
-./spec/notion/api/endpoints/databases_spec.rb[1:1:1] | passed | 0.01721 seconds |
-./spec/notion/api/endpoints/databases_spec.rb[1:1:2] | passed | 0.01969 seconds |
-./spec/notion/api/endpoints/databases_spec.rb[1:1:3] | passed | 1.89 seconds    |
-./spec/notion/api/endpoints/databases_spec.rb[1:1:4] | passed | 0.01744 seconds |
-./spec/notion/api/endpoints/databases_spec.rb[1:1:5] | passed | 0.01789 seconds |
-./spec/notion/api/endpoints/databases_spec.rb[1:1:6] | passed | 0.01858 seconds |
-./spec/notion/api/endpoints/pages_spec.rb[1:1:1]     | passed | 0.01904 seconds |
-./spec/notion/api/endpoints/pages_spec.rb[1:1:2]     | passed | 0.01722 seconds |
-./spec/notion/api/endpoints/pages_spec.rb[1:1:3]     | passed | 0.01935 seconds |
-./spec/notion/api/endpoints/users_spec.rb[1:1:1]     | passed | 0.02657 seconds |
-./spec/notion/api/endpoints/users_spec.rb[1:1:2]     | passed | 0.0209 seconds  |
-./spec/notion/api/endpoints/users_spec.rb[1:1:3]     | passed | 0.01967 seconds |
-./spec/notion/config_spec.rb[1:1:1]                  | passed | 0.00032 seconds |
-./spec/notion/version_spec.rb[1:1]                   | passed | 0.00024 seconds |
+./spec/notion/api/endpoints/blocks_spec.rb[1:1:1]    | passed | 0.03873 seconds |
+./spec/notion/api/endpoints/blocks_spec.rb[1:1:2]    | passed | 0.0494 seconds  |
+./spec/notion/api/endpoints/blocks_spec.rb[1:1:3]    | passed | 0.02657 seconds |
+./spec/notion/api/endpoints/databases_spec.rb[1:1:1] | passed | 0.02458 seconds |
+./spec/notion/api/endpoints/databases_spec.rb[1:1:2] | passed | 0.02588 seconds |
+./spec/notion/api/endpoints/databases_spec.rb[1:1:3] | passed | 0.0268 seconds  |
+./spec/notion/api/endpoints/databases_spec.rb[1:1:4] | passed | 0.01669 seconds |
+./spec/notion/api/endpoints/databases_spec.rb[1:1:5] | passed | 0.01661 seconds |
+./spec/notion/api/endpoints/databases_spec.rb[1:1:6] | passed | 0.0173 seconds  |
+./spec/notion/api/endpoints/pages_spec.rb[1:1:1]     | passed | 0.01728 seconds |
+./spec/notion/api/endpoints/pages_spec.rb[1:1:2]     | passed | 0.01656 seconds |
+./spec/notion/api/endpoints/pages_spec.rb[1:1:3]     | passed | 0.0206 seconds  |
+./spec/notion/api/endpoints/users_spec.rb[1:1:1]     | passed | 0.02992 seconds |
+./spec/notion/api/endpoints/users_spec.rb[1:1:2]     | passed | 0.02664 seconds |
+./spec/notion/api/endpoints/users_spec.rb[1:1:3]     | passed | 0.02533 seconds |
+./spec/notion/config_spec.rb[1:1:1]                  | passed | 0.00016 seconds |
+./spec/notion/version_spec.rb[1:1]                   | passed | 0.00016 seconds |

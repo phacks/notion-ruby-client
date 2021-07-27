@@ -141,7 +141,7 @@ title = [
     "type": "text",
     "text": {
       "content": "Grocery List",
-      "link": null
+      "link": nil
     }
   }
 ],
@@ -187,20 +187,24 @@ Create a page:
 
 ```ruby
 properties = {
-  "Name": [
-    {
-      "text": {
-        "content": "Tuscan Kale"
+  "Name": {
+    "title": [
+      {
+        "text": {
+          "content": "Tuscan Kale"
+        }
       }
-    }
-  ],
-  "Description": [
-    {
-      "text": {
-        "content": "A dark green leafy vegetable"
+    ]
+  },
+  "Description": {
+    "rich_text": [
+      {
+        "text": {
+          "content": "A dark green leafy vegetable"
+        }
       }
-    }
-  ],
+    ]
+  },
   "Food group": {
     "name": "🥦 Vegetable"
   },
