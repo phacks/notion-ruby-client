@@ -1,5 +1,8 @@
 # Notion Ruby Client
 
+[![Gem Version](https://badge.fury.io/rb/notion-ruby-client.svg)](http://badge.fury.io/rb/notion-ruby-client)
+[![CI workflow badge](https://github.com/orbit-love/notion-ruby-client/actions/workflows/ci.yml/badge.svg)](https://github.com/orbit-love/notion-ruby-client/actions/workflows/ci.yml)
+
 A Ruby client for the Notion API.
 
 ## Table of Contents
@@ -7,8 +10,27 @@ A Ruby client for the Notion API.
 - [Installation](#installation)
 - [Usage](#usage)
   - [Create a New Bot Integration](#create-a-new-bot-integration)
-  - [Declare the API Token](#declare-the-api-token)
+  - [Declare the API token](#declare-the-api-token)
   - [API Client](#api-client)
+    - [Instantiating a new Notion API client](#instantiating-a-new-notion-api-client)
+    - [Pagination](#pagination)
+- [Endpoints](#endpoints)
+  - [Databases](#databases)
+    - [Query a database](#query-a-database)
+    - [Create a Database](#create-a-database)
+    - [Retrieve a database](#retrieve-a-database)
+    - [List databases](#list-databases)
+  - [Pages](#pages)
+    - [Retrieve a page](#retrieve-a-page)
+    - [Create a page](#create-a-page)
+    - [Update page](#update-page)
+  - [Blocks](#blocks)
+    - [Retrieve block children](#retrieve-block-children)
+    - [Append block children](#append-block-children)
+  - [Users](#users)
+    - [Retrieve a user](#retrieve-a-user)
+    - [List all users](#list-all-users)
+- [Acknowledgements](#acknowledgements)
 
 ## Installation
 
@@ -22,15 +44,13 @@ Run `bundle install`.
 
 ## Usage
 
-### Create a New Bot Integration
+### Create a New Integration
 
-To integrate your bot with Notion, you must first [create a new Notion Bot](https://www.notion.so/Getting-started-da32a6fc1bcc4403a6126ee735710d89).
+> :blue_book: **Before you start**
+>
+> Make sure you are an **Admin** user in your Notion workspace. If you're not an Admin in your current workspace, [create a new personal workspace for free](https://www.notion.so/notion/Create-join-switch-workspaces-3b9be78982a940a7a27ce712ca6bdcf5#9332861c775543d0965f918924448a6d).
 
-1. Log into the workspace that you want your integration to be associated with.
-2. Confirm that you are an Admin in the workspace (see Settings & Members > Members).
-3. Go to Settings & Members, and click API
-
-![A screenshot of the Notion page to create a bot](screenshots/create_notion_bot.png)
+To create a new integration, follow the steps 1 & 2 outlined in the [Notion documentation](https://developers.notion.com/docs#getting-started). The “_Internal Integration Token_” is what is going to be used to authenticate API calls (referred to here as the “API token”).
 
 ### Declare the API token
 
@@ -56,29 +76,39 @@ You can specify the token or logger on a per-client basis:
 client = Notion::Client.new(token: '<secret Notion API token>')
 ```
 
-#### Users
+#### Pagination
 
-Get a paginated list of [User objects](https://www.notion.so/User-object-4f8d1a2fc1e54680b5f810ed0c6903a6) for the workspace:
+The client natively supports [cursor pagination](https://developers.notion.com/reference/pagination) for methods that allow it, such as `users_list`. Supply a block and the client will make repeated requests adjusting the value of `start_cursor` with every response.
 
 ```ruby
-client.users_list # retrieves the first page
-
-client.users_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
-
+all_users = []
 client.users_list do |page|
-  # paginate through all users
+  all_users.concat(page.results)
 end
+all_users
 ```
 
-Get a single User:
+When using cursor pagination the client will automatically pause and then retry the request if it runs into [Notion rate limiting](https://developers.notion.com/reference/errors#request-limits). (It will pause according to the `Retry-After` header in the 429 response before retrying the request.) If it receives too many rate-limited responses in a row it will give up and raise an error. The default number of retries is 100 and can be adjusted via `Notion::Client.config.default_max_retries` or by passing it directly into the method as `max_retries`.
+
+You can also proactively avoid rate limiting by adding a pause between every paginated request with the `sleep_interval` parameter, which is given in seconds.
 
 ```ruby
-client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
+all_users = []
+client.users_list(sleep_interval: 5, max_retries: 20) do |page|
+  # pauses for 5 seconds between each request
+  # gives up after 20 consecutive rate-limited responses
+  all_users.concat(page.results)
+end
+all_users
 ```
 
-#### Databases
+## Endpoints
 
-Gets a paginated array of Page objects contained in the requested database, filtered and ordered according to the filter and sort references provided in the request.
+### Databases
+
+#### Query a database
+
+Gets a paginated array of [Page](https://developers.notion.com/reference/page) objects contained in the database, filtered and ordered according to the filter conditions and sort criteria provided in the request.
 
 ```ruby
 client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')  # retrieves the first page
@@ -115,25 +145,13 @@ filter = {
 client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, filter: filter)
 ```
 
-Get a single Database:
+See [Pagination](#pagination) for details about how to iterate through the list.
 
-```ruby
-client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
-```
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/post-database-query).
 
-Lists databases:
+#### Create a Database
 
-```ruby
-client.databases_list # retrieves the first page
-
-client.databases_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
-
-client.databases_list do |page|
-  # paginate through all databases
-end
-```
-
-Create a Database:
+Creates a database as a subpage in the specified parent page, with the specified properties schema.
 
 ```ruby
 title = [
@@ -181,9 +199,59 @@ client.create_database(
 )
 ```
 
-#### Pages
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/create-a-database).
 
-Create a page:
+#### Retrieve a database
+
+Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
+
+```ruby
+client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-database).
+
+#### List databases
+
+List all [Databases](https://developers.notion.com/reference-link/database) shared with the authenticated integration.
+
+```ruby
+client.databases_list # retrieves the first page
+
+client.databases_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.databases_list do |page|
+  # paginate through all databases
+end
+```
+
+See [Pagination](#pagination) for details about how to iterate through the list.
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/list-databases).
+
+### Pages
+
+#### Retrieve a page
+
+Retrieves a [Page object](https://developers.notion.com/reference-link/page) using the ID specified.
+
+> :blue_book: Responses contains page **properties**, not page content. To fetch page content, use the [retrieve block children](#retrieve-block-children) endpoint.
+
+```ruby
+client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-page).
+
+#### Create a page
+
+Creates a new page in the specified database or as a child of an existing page.
+
+If the parent is a database, the [property values](https://developers.notion.com/reference-link/page-property-value) of the new page in the properties parameter must conform to the parent [database](https://developers.notion.com/reference-link/database)'s property schema.
+
+If the parent is a page, the only valid property is `title`.
+
+The new page may include page content, described as [blocks](https://developers.notion.com/reference-link/block) in the children parameter.
 
 ```ruby
 properties = {
@@ -241,13 +309,13 @@ client.create_page(
 )
 ```
 
-Retrieve a page:
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/post-page).
 
-```ruby
-client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
-```
+#### Update page
 
-Update page properties:
+Updates [page property values](https://developers.notion.com/reference-link/page-property-value) for the specified page. Properties that are not set via the `properties` parameter will remain unchanged.
+
+If the parent is a database, the new [property values](https://developers.notion.com/reference-link/page-property-value) in the `properties` parameter must conform to the parent [database](https://developers.notion.com/reference-link/database)'s property schema.
 
 ```ruby
 properties = {
@@ -256,9 +324,13 @@ properties = {
 client.update_page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
 ```
 
-#### Blocks
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-page).
 
-Retrieve children Block objects at the requested path:
+### Blocks
+
+#### Retrieve block children
+
+Returns a paginated array of child [block objects](https://developers.notion.com/reference-link/block) contained in the block using the ID specified. In order to receive a complete representation of a block, you may need to recursively retrieve the block children of child blocks.
 
 ```ruby
 client.block_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
@@ -270,7 +342,15 @@ client.block_children_list do |page|
 end
 ```
 
-Creates and appends new children blocks to the parent block in the requested path:
+See [Pagination](#pagination) for details about how to iterate through the list.
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-block-children).
+
+#### Append block children
+
+Creates and appends new children blocks to the parent block `id` specified.
+
+Returns a paginated list of newly created first level children block objects.
 
 ```ruby
 children = [
@@ -284,3 +364,39 @@ children = [
 ]
 client.block_append_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
 ```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
+
+### Users
+
+#### Retrieve a user
+
+Retrieves a [User](https://developers.notion.com/reference/user) using the ID specified.
+
+```ruby
+client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-user).
+
+#### List all users
+
+Returns a paginated list of [Users](https://developers.notion.com/reference/user) for the workspace.
+
+```ruby
+client.users_list # retrieves the first page
+
+client.users_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.users_list do |page|
+  # paginate through all users
+end
+```
+
+See [Pagination](#pagination) for details about how to iterate through the list.
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-users).
+
+## Acknowledgements
+
+The code, specs and documentation of this gem are an adaptation of the fantastic [Slack Ruby Client](https://github.com/slack-ruby/slack-ruby-client) gem. Many thanks to its author and maintainer [@dblock](https://github.com/dblock) and [contributors](https://github.com/slack-ruby/slack-ruby-client/graphs/contributors).
