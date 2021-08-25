@@ -1,5 +1,7 @@
 # Notion Ruby Client
 
+![CI workflow badge](https://github.com/orbit-love/notion-ruby-client/actions/workflows/ci.yml/badge.svg)
+
 A Ruby client for the Notion API.
 
 ## Table of Contents
