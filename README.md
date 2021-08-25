@@ -1,6 +1,7 @@
 # Notion Ruby Client
 
-![CI workflow badge](https://github.com/orbit-love/notion-ruby-client/actions/workflows/ci.yml/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/notion-ruby-client.svg)](http://badge.fury.io/rb/notion-ruby-client)
+[![CI workflow badge](https://github.com/orbit-love/notion-ruby-client/actions/workflows/ci.yml/badge.svg)](https://github.com/orbit-love/notion-ruby-client/actions/workflows/ci.yml)
 
 A Ruby client for the Notion API.
 
