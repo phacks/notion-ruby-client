@@ -41,15 +41,13 @@ Run `bundle install`.
 
 ## Usage
 
-### Create a New Bot Integration
+### Create a New Integration
 
-To integrate your bot with Notion, you must first [create a new Notion Bot](https://www.notion.so/Getting-started-da32a6fc1bcc4403a6126ee735710d89).
+> :blue_book: **Before you start**
+>
+> Make sure you are an **Admin** user in your Notion workspace. If you're not an Admin in your current workspace, [create a new personal workspace for free](https://www.notion.so/notion/Create-join-switch-workspaces-3b9be78982a940a7a27ce712ca6bdcf5#9332861c775543d0965f918924448a6d).
 
-1. Log into the workspace that you want your integration to be associated with.
-2. Confirm that you are an Admin in the workspace (see Settings & Members > Members).
-3. Go to Settings & Members, and click API
-
-![A screenshot of the Notion page to create a bot](screenshots/create_notion_bot.png)
+To create a new integration, follow the steps 1 & 2 outlined in the [Notion documentation](https://developers.notion.com/docs#getting-started). The “_Internal Integration Token_” is what is going to be used to authenticate API calls (referred to here as the “API token”).
 
 ### Declare the API token
 
