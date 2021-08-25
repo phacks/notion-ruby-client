@@ -10,6 +10,7 @@ A Ruby client for the Notion API.
   - [Declare the API token](#declare-the-api-token)
   - [API Client](#api-client)
     - [Instantiating a new Notion API client](#instantiating-a-new-notion-api-client)
+    - [Pagination](#pagination)
 - [Endpoints](#endpoints)
   - [Databases](#databases)
     - [Query a database](#query-a-database)
@@ -73,6 +74,32 @@ You can specify the token or logger on a per-client basis:
 client = Notion::Client.new(token: '<secret Notion API token>')
 ```
 
+#### Pagination
+
+The client natively supports [cursor pagination](https://developers.notion.com/reference/pagination) for methods that allow it, such as `users_list`. Supply a block and the client will make repeated requests adjusting the value of `start_cursor` with every response.
+
+```ruby
+all_users = []
+client.users_list do |page|
+  all_users.concat(page.results)
+end
+all_users
+```
+
+When using cursor pagination the client will automatically pause and then retry the request if it runs into [Notion rate limiting](https://developers.notion.com/reference/errors#request-limits). (It will pause according to the `Retry-After` header in the 429 response before retrying the request.) If it receives too many rate-limited responses in a row it will give up and raise an error. The default number of retries is 100 and can be adjusted via `Notion::Client.config.default_max_retries` or by passing it directly into the method as `max_retries`.
+
+You can also proactively avoid rate limiting by adding a pause between every paginated request with the `sleep_interval` parameter, which is given in seconds.
+
+```ruby
+all_users = []
+client.users_list(sleep_interval: 5, max_retries: 20) do |page|
+  # pauses for 5 seconds between each request
+  # gives up after 20 consecutive rate-limited responses
+  all_users.concat(page.results)
+end
+all_users
+```
+
 ## Endpoints
 
 ### Databases
@@ -116,6 +143,8 @@ filter = {
 client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, filter: filter)
 ```
 
+See [Pagination](#pagination) for details about how to iterate through the list.
+
 #### Retrieve a database
 
 Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
@@ -137,6 +166,8 @@ client.databases_list do |page|
   # paginate through all databases
 end
 ```
+
+See [Pagination](#pagination) for details about how to iterate through the list.
 
 #### Create a Database
 
@@ -295,6 +326,8 @@ client.block_children_list do |page|
 end
 ```
 
+See [Pagination](#pagination) for details about how to iterate through the list.
+
 #### Append block children
 
 Creates and appends new children blocks to the parent block `id` specified.
@@ -329,6 +362,8 @@ client.users_list do |page|
   # paginate through all users
 end
 ```
+
+See [Pagination](#pagination) for details about how to iterate through the list.
 
 #### Retrieve a user
 
