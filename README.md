@@ -27,6 +27,7 @@ A Ruby client for the Notion API.
   - [Users](#users)
     - [List all users](#list-all-users)
     - [Retrieve a user](#retrieve-a-user)
+- [Acknowledgements](#acknowledgements)
 
 ## Installation
 
@@ -372,3 +373,7 @@ Retrieves a [User](https://developers.notion.com/reference/user) using the ID sp
 ```ruby
 client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
 ```
+
+## Acknowledgements
+
+The code, specs and documentation of this gem are an adaptation of the fantastic [Slack Ruby Client](https://github.com/slack-ruby/slack-ruby-client) gem. Many thanks to its author and maintainer [@dblock](https://github.com/dblock) and [contributors](https://github.com/slack-ruby/slack-ruby-client/graphs/contributors).
