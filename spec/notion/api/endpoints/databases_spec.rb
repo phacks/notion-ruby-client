@@ -44,7 +44,7 @@ RSpec.describe Notion::Api::Endpoints::Databases do
 
     it 'paginated queries', vcr: { cassette_name: 'paginated_database_query' } do
       pages = []
-      client.database_query(id: database_id, limit: 1) do |page|
+      client.database_query(id: database_id, page_size: 1) do |page|
         pages.concat page.results
       end
       expect(pages.size).to be >= 1
@@ -57,7 +57,7 @@ RSpec.describe Notion::Api::Endpoints::Databases do
 
     it 'paginated lists', vcr: { cassette_name: 'paginated_databases_list' } do
       databases = []
-      client.databases_list(limit: 1) do |page|
+      client.databases_list(page_size: 1) do |page|
         databases.concat page.results
       end
       expect(databases.size).to be >= 1

@@ -7,6 +7,11 @@ RSpec.describe Notion::Api::Pagination::Cursor do
   context 'default cursor' do
     let(:cursor) { described_class.new(client, 'users_list', {}) }
 
+    it 'provides a default page_size' do
+      expect(client).to receive(:users_list).with(page_size: 100)
+      cursor.first
+    end
+
     it 'handles blank response metadata' do
       expect(client).to receive(:users_list).once.and_return(Notion::Messages::Message.new)
       cursor.to_a
@@ -35,17 +40,17 @@ RSpec.describe Notion::Api::Pagination::Cursor do
         it 'sleeps after a TooManyRequestsError' do
           expect(client).to(
             receive(:users_list)
-              .with({})
+              .with(page_size: 100)
               .ordered
               .and_return(Notion::Messages::Message.new({ has_more: true, next_cursor: 'next' }))
           )
           expect(client).to(
-            receive(:users_list).with(start_cursor: 'next').ordered.and_raise(error)
+            receive(:users_list).with(page_size: 100, start_cursor: 'next').and_raise(error)
           )
           expect(cursor).to receive(:sleep).once.ordered.with(10)
           expect(client).to(
             receive(:users_list)
-              .with(start_cursor: 'next')
+              .with(page_size: 100, start_cursor: 'next')
               .ordered
               .and_return(Notion::Messages::Message.new)
           )
@@ -59,11 +64,11 @@ RSpec.describe Notion::Api::Pagination::Cursor do
         it 'raises the error after hitting the max retries' do
           expect(client).to(
             receive(:users_list)
-              .with({})
+              .with(page_size: 100)
               .and_return(Notion::Messages::Message.new({ has_more: true, next_cursor: 'next' }))
           )
           expect(client).to(
-            receive(:users_list).with(start_cursor: 'next').exactly(5).times.and_raise(error)
+            receive(:users_list).with(page_size: 100, start_cursor: 'next').exactly(5).times.and_raise(error)
           )
           expect(cursor).to receive(:sleep).exactly(4).times.with(10)
           expect { cursor.to_a }.to raise_error(error)
@@ -76,23 +81,32 @@ RSpec.describe Notion::Api::Pagination::Cursor do
         it 'sleeps for retry_after seconds after a TooManyRequestsError' do
           expect(client).to(
             receive(:users_list)
-              .with({})
+              .with(page_size: 100)
               .ordered
               .and_return(Notion::Messages::Message.new({ has_more: true, next_cursor: 'next' }))
           )
           expect(client).to(
-            receive(:users_list).with(start_cursor: 'next').ordered.and_raise(error)
+            receive(:users_list).with(page_size: 100, start_cursor: 'next').ordered.and_raise(error)
           )
           expect(cursor).to receive(:sleep).once.ordered.with(5)
           expect(client).to(
             receive(:users_list)
-              .with(start_cursor: 'next')
+              .with(page_size: 100, start_cursor: 'next')
               .ordered
               .and_return(Notion::Messages::Message.new)
           )
           cursor.to_a
         end
       end
+    end
+  end
+
+  context 'with a custom page_size' do
+    let(:cursor) { described_class.new(client, 'users_list', page_size: 42) }
+
+    it 'overrides default page_size' do
+      expect(client).to receive(:users_list).with(page_size: 42)
+      cursor.first
     end
   end
 

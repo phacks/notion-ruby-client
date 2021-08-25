@@ -78,17 +78,17 @@ client = Notion::Client.new(token: '<secret Notion API token>')
 
 #### Pagination
 
-The client natively supports [cursor pagination](https://developers.notion.com/reference/pagination) for methods that allow it, such as `users_list`. Supply a block and the client will make repeated requests adjusting the value of `start_cursor` with every response.
+The client natively supports [cursor pagination](https://developers.notion.com/reference/pagination) for methods that allow it, such as `users_list`. Supply a block and the client will make repeated requests adjusting the value of `start_cursor` with every response. The default page size is set to 100 (Notion’s current default and maximum) and can be adjusted via `Notion::Client.config.default_page_size` or by passing it directly into the API call.
 
 ```ruby
 all_users = []
-client.users_list do |page|
+client.users_list(page_size: 25) do |page|
   all_users.concat(page.results)
 end
-all_users
+all_users # All users, retrieved 25 at a time
 ```
 
-When using cursor pagination the client will automatically pause and then retry the request if it runs into [Notion rate limiting](https://developers.notion.com/reference/errors#request-limits). (It will pause according to the `Retry-After` header in the 429 response before retrying the request.) If it receives too many rate-limited responses in a row it will give up and raise an error. The default number of retries is 100 and can be adjusted via `Notion::Client.config.default_max_retries` or by passing it directly into the method as `max_retries`.
+When using cursor pagination the client will automatically pause and then retry the request if it runs into [Notion rate limiting](https://developers.notion.com/reference/errors#request-limits). (It will pause for 10 seconds before retrying the request, a value that can be overriden with `Notion::Client.config.default_retry_after`.) If it receives too many rate-limited responses in a row it will give up and raise an error. The default number of retries is 100 and can be adjusted via `Notion::Client.config.default_max_retries` or by passing it directly into the method as `max_retries`.
 
 You can also proactively avoid rate limiting by adding a pause between every paginated request with the `sleep_interval` parameter, which is given in seconds.
 
