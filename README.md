@@ -14,19 +14,19 @@ A Ruby client for the Notion API.
 - [Endpoints](#endpoints)
   - [Databases](#databases)
     - [Query a database](#query-a-database)
+    - [Create a Database](#create-a-database)
     - [Retrieve a database](#retrieve-a-database)
     - [List databases](#list-databases)
-    - [Create a Database](#create-a-database)
   - [Pages](#pages)
-    - [Create a page](#create-a-page)
     - [Retrieve a page](#retrieve-a-page)
+    - [Create a page](#create-a-page)
     - [Update page](#update-page)
   - [Blocks](#blocks)
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
   - [Users](#users)
-    - [List all users](#list-all-users)
     - [Retrieve a user](#retrieve-a-user)
+    - [List all users](#list-all-users)
 - [Acknowledgements](#acknowledgements)
 
 ## Installation
@@ -144,30 +144,6 @@ client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, fi
 
 See [Pagination](#pagination) for details about how to iterate through the list.
 
-#### Retrieve a database
-
-Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
-
-```ruby
-client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
-```
-
-#### List databases
-
-List all [Databases](https://developers.notion.com/reference-link/database) shared with the authenticated integration.
-
-```ruby
-client.databases_list # retrieves the first page
-
-client.databases_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
-
-client.databases_list do |page|
-  # paginate through all databases
-end
-```
-
-See [Pagination](#pagination) for details about how to iterate through the list.
-
 #### Create a Database
 
 Creates a database as a subpage in the specified parent page, with the specified properties schema.
@@ -218,7 +194,41 @@ client.create_database(
 )
 ```
 
+#### Retrieve a database
+
+Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
+
+```ruby
+client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
+```
+
+#### List databases
+
+List all [Databases](https://developers.notion.com/reference-link/database) shared with the authenticated integration.
+
+```ruby
+client.databases_list # retrieves the first page
+
+client.databases_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.databases_list do |page|
+  # paginate through all databases
+end
+```
+
+See [Pagination](#pagination) for details about how to iterate through the list.
+
 ### Pages
+
+#### Retrieve a page
+
+Retrieves a [Page object](https://developers.notion.com/reference-link/page) using the ID specified.
+
+> :blue_book: Responses contains page **properties**, not page content. To fetch page content, use the [retrieve block children](#retrieve-block-children) endpoint.
+
+```ruby
+client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+```
 
 #### Create a page
 
@@ -286,16 +296,6 @@ client.create_page(
 )
 ```
 
-#### Retrieve a page
-
-Retrieves a [Page object](https://developers.notion.com/reference-link/page) using the ID specified.
-
-> :blue_book: Responses contains page **properties**, not page content. To fetch page content, use the [retrieve block children](#retrieve-block-children) endpoint.
-
-```ruby
-client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
-```
-
 #### Update page
 
 Updates [page property values](https://developers.notion.com/reference-link/page-property-value) for the specified page. Properties that are not set via the `properties` parameter will remain unchanged.
@@ -348,6 +348,14 @@ client.block_append_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', childre
 
 ### Users
 
+#### Retrieve a user
+
+Retrieves a [User](https://developers.notion.com/reference/user) using the ID specified.
+
+```ruby
+client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
+```
+
 #### List all users
 
 Returns a paginated list of [Users](https://developers.notion.com/reference/user) for the workspace.
@@ -363,14 +371,6 @@ end
 ```
 
 See [Pagination](#pagination) for details about how to iterate through the list.
-
-#### Retrieve a user
-
-Retrieves a [User](https://developers.notion.com/reference/user) using the ID specified.
-
-```ruby
-client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
-```
 
 ## Acknowledgements
 
