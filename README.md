@@ -144,6 +144,8 @@ client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, fi
 
 See [Pagination](#pagination) for details about how to iterate through the list.
 
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/post-database-query).
+
 #### Create a Database
 
 Creates a database as a subpage in the specified parent page, with the specified properties schema.
@@ -194,6 +196,8 @@ client.create_database(
 )
 ```
 
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/create-a-database).
+
 #### Retrieve a database
 
 Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
@@ -201,6 +205,8 @@ Retrieves a [Database object](https://developers.notion.com/reference-link/datab
 ```ruby
 client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
 ```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-database).
 
 #### List databases
 
@@ -218,6 +224,8 @@ end
 
 See [Pagination](#pagination) for details about how to iterate through the list.
 
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/list-databases).
+
 ### Pages
 
 #### Retrieve a page
@@ -229,6 +237,8 @@ Retrieves a [Page object](https://developers.notion.com/reference-link/page) usi
 ```ruby
 client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
 ```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-page).
 
 #### Create a page
 
@@ -296,6 +306,8 @@ client.create_page(
 )
 ```
 
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/post-page).
+
 #### Update page
 
 Updates [page property values](https://developers.notion.com/reference-link/page-property-value) for the specified page. Properties that are not set via the `properties` parameter will remain unchanged.
@@ -308,6 +320,8 @@ properties = {
 }
 client.update_page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
 ```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-page).
 
 ### Blocks
 
@@ -326,6 +340,8 @@ end
 ```
 
 See [Pagination](#pagination) for details about how to iterate through the list.
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-block-children).
 
 #### Append block children
 
@@ -346,6 +362,8 @@ children = [
 client.block_append_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
 ```
 
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
+
 ### Users
 
 #### Retrieve a user
@@ -355,6 +373,8 @@ Retrieves a [User](https://developers.notion.com/reference/user) using the ID sp
 ```ruby
 client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
 ```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-user).
 
 #### List all users
 
@@ -371,6 +391,8 @@ end
 ```
 
 See [Pagination](#pagination) for details about how to iterate through the list.
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-users).
 
 ## Acknowledgements
 
