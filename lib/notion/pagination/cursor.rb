@@ -9,6 +9,7 @@ module Notion
         attr_reader :verb
         attr_reader :sleep_interval
         attr_reader :max_retries
+        attr_reader :retry_after
         attr_reader :params
 
         def initialize(client, verb, params = {})
@@ -17,6 +18,7 @@ module Notion
           @params = params.dup
           @sleep_interval = @params.delete(:sleep_interval)
           @max_retries = @params.delete(:max_retries) || client.default_max_retries
+          @retry_after = @params.delete(:retry_after) || client.default_retry_after
         end
 
         def each
@@ -31,7 +33,7 @@ module Notion
 
               client.logger.debug("#{self.class}##{__method__}") { e.to_s }
               retry_count += 1
-              sleep(e.retry_after)
+              sleep(retry_after)
               next
             end
             yield response

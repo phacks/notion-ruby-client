@@ -44,3 +44,6 @@ Style/ModuleFunction:
 Naming/FileName:
   Exclude:
     - lib/notion-ruby-client.rb # Required to match gemspec name
+
+RSpec/FilePath:
+  Enabled: false

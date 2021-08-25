@@ -15,6 +15,7 @@ module Notion
       open_timeout
       default_page_size
       default_max_retries
+      default_retry_after
       adapter
     ].freeze
 
@@ -32,6 +33,7 @@ module Notion
       self.open_timeout = nil
       self.default_page_size = 100
       self.default_max_retries = 100
+      self.default_retry_after = 10
       self.adapter = ::Faraday.default_adapter
     end
 

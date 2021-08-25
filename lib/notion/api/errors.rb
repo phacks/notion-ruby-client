@@ -8,7 +8,6 @@ module Notion
       class InternalError < NotionError; end
       class InvalidRequest < NotionError; end
       class ObjectNotFound < NotionError; end
-      class TooManyRequests < NotionError; end
       class Unauthorized < NotionError; end
 
       ERROR_CLASSES = {
@@ -17,7 +16,6 @@ module Notion
         'internal_error' => InternalError,
         'invalid_request' => InvalidRequest,
         'object_not_found' => ObjectNotFound,
-        'rate_limited' => TooManyRequests,
         'unauthorized' => Unauthorized
       }.freeze
     end
