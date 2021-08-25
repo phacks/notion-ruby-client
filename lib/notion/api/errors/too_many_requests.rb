@@ -7,7 +7,7 @@ module Notion
 
         def initialize(response)
           @response = response
-          super "Too many requests"
+          super 'Too many requests'
         end
       end
     end
