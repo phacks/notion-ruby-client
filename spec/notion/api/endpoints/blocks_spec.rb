@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe Notion::Api::Endpoints::Blocks do
   let(:client) { Notion::Client.new }
-  let(:page_id) { '723578f1-6e51-450c-8ee1-09158c19fd4c' }
+  let(:block_id) { '723578f1-6e51-450c-8ee1-09158c19fd4c' }
   let(:children) do
     [
       {
@@ -18,7 +18,7 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
 
   context 'blocks' do
     it 'children', vcr: { cassette_name: 'block_children' } do
-      response = client.block_children(id: page_id)
+      response = client.block_children(block_id: block_id)
       expect(response.results.length).to be >= 1
       expect(response.results[0].heading_1.text.first.plain_text).to eql 'A Header'
       expect(response.results[1].paragraph.text.first.plain_text).to eql 'A paragraph'
@@ -26,15 +26,15 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
 
     it 'paginated children', vcr: { cassette_name: 'paginated_block_children' } do
       children = []
-      client.block_children(id: page_id, page_size: 1) do |page|
+      client.block_children(block_id: block_id, page_size: 1) do |page|
         children.concat page.results
       end
       expect(children.size).to be >= 1
     end
 
     it 'appends', vcr: { cassette_name: 'block_append_children' } do
-      response = client.block_append_children(id: page_id, children: children)
-      expect(response.id).to eql page_id
+      response = client.block_append_children(block_id: block_id, children: children)
+      expect(response.id).to eql block_id
     end
   end
 end
