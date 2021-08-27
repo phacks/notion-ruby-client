@@ -14,16 +14,16 @@ module Notion
         #
         # Returns a 400 or 429 HTTP response if the request exceeds Notion's Request limits.
         #
-        # @option options [id] :id
+        # @option options [id] :block_id
         #   Block to get children info on.
         def block_children(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
+          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
           if block_given?
             Pagination::Cursor.new(self, :block_children, options).each do |page|
               yield page
             end
           else
-            get("blocks/#{options[:id]}/children", options)
+            get("blocks/#{options[:block_id]}/children", options)
           end
         end
 
@@ -38,14 +38,14 @@ module Notion
         #
         # Returns a 400 or 429 HTTP response if the request exceeds Notion's Request limits.
         #
-        # @option options [id] :id
-        #   Block to get children info on.
+        # @option options [id] :block_id
+        #   Block to append children to.
         #
         # @option options [[Object]] :children
         #   Children blocks to append
         def block_append_children(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
-          patch("blocks/#{options[:id]}/children", options)
+          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
+          patch("blocks/#{options[:block_id]}/children", options)
         end
       end
     end

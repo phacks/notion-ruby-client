@@ -335,11 +335,11 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 Returns a paginated array of child [block objects](https://developers.notion.com/reference-link/block) contained in the block using the ID specified. In order to receive a complete representation of a block, you may need to recursively retrieve the block children of child blocks.
 
 ```ruby
-client.block_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+client.block_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
 
-client.block_children(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+client.block_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
 
-client.block_children_list do |page|
+client.block_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75') do |page|
   # paginate through all children
 end
 ```
@@ -350,7 +350,7 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 
 #### Append block children
 
-Creates and appends new children blocks to the parent block `id` specified.
+Creates and appends new children blocks to the parent block specified by `block_id`.
 
 Returns a paginated list of newly created first level children block objects.
 
@@ -364,7 +364,7 @@ children = [
     }
   }
 ]
-client.block_append_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
+client.block_append_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
