@@ -30,6 +30,7 @@ A Ruby client for the Notion API.
   - [Users](#users)
     - [Retrieve a user](#retrieve-a-user)
     - [List all users](#list-all-users)
+  - [Search](#search)
 - [Acknowledgements](#acknowledgements)
 
 ## Installation
@@ -398,6 +399,30 @@ end
 See [Pagination](#pagination) for details about how to iterate through the list.
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-users).
+
+### Search
+
+Searches all pages and child pages that are shared with the integration. The results may include databases.
+
+```ruby
+client.search # search through every available page and database
+
+client.search(query: 'Specific query') # limits which pages are returned by comparing the query to the page title
+
+client.search(filter: { property: 'object', value: 'page' }) # only returns pages
+
+client.search(sort: { direction: 'ascending', timestamp: 'last_edited_time' }) # sorts the results based on the provided criteria.
+
+client.search(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+
+client.search do |page|
+  # paginate through all search pages
+end
+```
+
+See [Pagination](#pagination) for details about how to iterate through the list.
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/post-search).
 
 ## Acknowledgements
 
