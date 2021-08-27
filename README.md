@@ -52,6 +52,8 @@ Run `bundle install`.
 
 To create a new integration, follow the steps 1 & 2 outlined in the [Notion documentation](https://developers.notion.com/docs#getting-started). The “_Internal Integration Token_” is what is going to be used to authenticate API calls (referred to here as the “API token”).
 
+> :blue_book: Integrations don't have access to any pages (or databases) in the workspace at first. **A user must share specific pages with an integration in order for those pages to be accessed using the API.**
+
 ### Declare the API token
 
 ```ruby
@@ -115,7 +117,7 @@ client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')  # retrieves t
 
 client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
 
-client.database_query((id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
+client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
   # paginate through all pages
 end
 
@@ -333,11 +335,11 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 Returns a paginated array of child [block objects](https://developers.notion.com/reference-link/block) contained in the block using the ID specified. In order to receive a complete representation of a block, you may need to recursively retrieve the block children of child blocks.
 
 ```ruby
-client.block_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+client.block_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
 
-client.block_children(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+client.block_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
 
-client.block_children_list do |page|
+client.block_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75') do |page|
   # paginate through all children
 end
 ```
@@ -348,7 +350,7 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 
 #### Append block children
 
-Creates and appends new children blocks to the parent block `id` specified.
+Creates and appends new children blocks to the parent block specified by `block_id`.
 
 Returns a paginated list of newly created first level children block objects.
 
@@ -362,7 +364,7 @@ children = [
     }
   }
 ]
-client.block_append_children(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
+client.block_append_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', children: children)
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
