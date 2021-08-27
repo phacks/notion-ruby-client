@@ -52,6 +52,8 @@ Run `bundle install`.
 
 To create a new integration, follow the steps 1 & 2 outlined in the [Notion documentation](https://developers.notion.com/docs#getting-started). The “_Internal Integration Token_” is what is going to be used to authenticate API calls (referred to here as the “API token”).
 
+> :blue_book: Integrations don't have access to any pages (or databases) in the workspace at first. **A user must share specific pages with an integration in order for those pages to be accessed using the API.**
+
 ### Declare the API token
 
 ```ruby
@@ -115,7 +117,7 @@ client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')  # retrieves t
 
 client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
 
-client.database_query((id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
+client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
   # paginate through all pages
 end
 
