@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.notion.com/v1/databases/dd428e9dd3fe4171870da7a1902c748b/query
     body:
       encoding: UTF-8
-      string: '{"database_id":"dd428e9dd3fe4171870da7a1902c748b"}'
+      string: ''
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -14,9 +14,11 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-05-13'
+      - '2021-08-16'
       Content-Type:
       - application/json
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -25,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 29 Aug 2021 16:47:35 GMT
+      - Sun, 29 Aug 2021 17:47:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -125,10 +127,10 @@ http_interactions:
         https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
         https://ton.twimg.com; frame-src https: http:; media-src https: http:'
       Set-Cookie:
-      - notion_browser_id=351541bc-ca99-420a-9ed0-f42915fc7999; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 May 2053 18:34:15 GMT; Secure
+      - notion_browser_id=f8164d1e-85fa-4ca5-9f19-b224dd96f559; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:34:39 GMT; Secure
       Etag:
-      - W/"4b7-SteU+PB3xEdim4HbpwAbjPaSWz4"
+      - W/"4f2-gJyyePHpaRcmRm1OpDpzyoMMVwg"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -138,15 +140,15 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 68674311b9a90824-CDG
+      - 68679b8e4aed04a3-CDG
     body:
       encoding: UTF-8
-      string: '{"object":"list","results":[{"object":"page","id":"c7fd1abe-8114-44ea-be77-9632ea33e581","created_time":"2021-04-30T07:49:00.000Z","last_edited_time":"2021-05-25T20:17:00.000Z","cover":null,"icon":null,"parent":{"type":"database_id","database_id":"dd428e9d-d3fe-4171-870d-a7a1902c748b"},"archived":false,"properties":{"Orbit
-        Status":{"id":"=adK","type":"rich_text","rich_text":[{"type":"text","text":{"content":"OK","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"OK","href":null}]},"Orbit
-        Note URL":{"id":"L:sP","type":"url","url":"https://app.orbit.love/orbit/members/phacks3?type=notes"},"Member
-        Email":{"id":"[IFC","type":"email","email":"nicolas@orbit.love"},"Send to
-        Orbit":{"id":"^oR?","type":"checkbox","checkbox":true},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Nicolas
+      string: '{"object":"list","results":[{"object":"page","id":"c7fd1abe-8114-44ea-be77-9632ea33e581","created_time":"2021-04-30T07:49:00.000Z","last_edited_time":"2021-08-29T17:45:00.000Z","cover":null,"icon":null,"parent":{"type":"database_id","database_id":"dd428e9d-d3fe-4171-870d-a7a1902c748b"},"archived":false,"properties":{"Orbit
+        Status":{"id":"%3DadK","type":"rich_text","rich_text":[{"type":"text","text":{"content":"OK","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"OK","href":null}]},"Orbit
+        Note URL":{"id":"L%3AsP","type":"url","url":"https://app.orbit.love/orbit/members/phacks3?type=notes"},"Member
+        Email":{"id":"%5BIFC","type":"email","email":"nicolas@orbit.love"},"Send to
+        Orbit":{"id":"%5EoR%3F","type":"checkbox","checkbox":true},"Date":{"id":"g%60km","type":"date","date":null},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Nicolas
         Goutay","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Nicolas
         Goutay","href":null}]}},"url":"https://www.notion.so/Nicolas-Goutay-c7fd1abe811444eabe779632ea33e581"}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 29 Aug 2021 16:47:35 GMT
+  recorded_at: Sun, 29 Aug 2021 17:47:59 GMT
 recorded_with: VCR 6.0.0
