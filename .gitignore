@@ -1,0 +1,7 @@
+.env
+pkg
+Gemfile.lock
+.DS_Store
+.bundle
+.idea
+.rspec_status
