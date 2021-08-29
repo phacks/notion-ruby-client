@@ -7,15 +7,15 @@ RSpec.describe Notion::Api::Endpoints::Users do
   context 'users' do
     it 'lists', vcr: { cassette_name: 'users_list' } do
       response = client.users_list
-      expect(response.results.size).to be 3
+      expect(response.results.size).to be 1
     end
 
     it 'paginated list', vcr: { cassette_name: 'paginated_users_list' } do
       members = []
-      client.users_list(page_size: 2) do |page|
+      client.users_list(page_size: 1) do |page|
         members.concat page.results
       end
-      expect(members.size).to eq 3
+      expect(members.size).to eq 1
     end
 
     it 'retrieves', vcr: { cassette_name: 'users' } do
