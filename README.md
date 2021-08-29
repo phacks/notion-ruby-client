@@ -424,7 +424,7 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 Retrieves a [User](https://developers.notion.com/reference/user) using the ID specified.
 
 ```ruby
-client.user(id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
+client.user(user_id: 'd40e767c-d7af-4b18-a86d-55c61f1e39a4')
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-user).

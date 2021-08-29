@@ -7,11 +7,11 @@ module Notion
         #
         # Retrieves a User object using the ID specified in the request.
         #
-        # @option options [id] :id
+        # @option options [id] :user_id
         #   User to get info on.
         def user(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
-          get("users/#{options[:id]}")
+          throw ArgumentError.new('Required arguments :user_id missing') if options[:user_id].nil?
+          get("users/#{options[:user_id]}")
         end
 
         #
