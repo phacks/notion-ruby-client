@@ -3,13 +3,13 @@ require 'spec_helper'
 
 RSpec.describe Notion::Api::Endpoints::Databases do
   let(:client) { Notion::Client.new }
-  let(:database_id) { '89b30a70-ce51-4646-ab4f-5fdcb1d5e76c' }
-  let(:page_id) { '7cbf38f8-5921-4422-bd3f-a647c3e2544b' }
+  let(:database_id) { 'dd428e9dd3fe4171870da7a1902c748b' }
+  let(:page_id) { 'c7fd1abe811444eabe779632ea33e581' }
   let(:title) do
     [
       {
         "text": {
-          "content": 'Another Notion database'
+          "content": 'Orbit 💜 Notion'
         }
       }
     ]
@@ -23,14 +23,17 @@ RSpec.describe Notion::Api::Endpoints::Databases do
   end
 
   context 'databases' do
-    it 'retrieves', vcr: { cassette_name: 'database' } do
-      response = client.database(id: database_id)
-      expect(response.title.first.plain_text).to eql 'A Notion database'
+    it 'queries', vcr: { cassette_name: 'database_query' } do
+      response = client.database_query(database_id: database_id)
+      expect(response.results.length).to be >= 1
     end
 
-    it 'queries', vcr: { cassette_name: 'database_query' } do
-      response = client.database_query(id: database_id)
-      expect(response.results.length).to be >= 1
+    it 'paginated queries', vcr: { cassette_name: 'paginated_database_query' } do
+      pages = []
+      client.database_query(database_id: database_id, page_size: 1) do |page|
+        pages.concat page.results
+      end
+      expect(pages.size).to be >= 1
     end
 
     it 'creates', vcr: { cassette_name: 'create_database' } do
@@ -39,15 +42,20 @@ RSpec.describe Notion::Api::Endpoints::Databases do
         title: title,
         properties: properties
       )
-      expect(response.title.first.plain_text).to eql 'Another Notion database'
+      expect(response.title.first.plain_text).to eql 'Orbit 💜 Notion'
     end
 
-    it 'paginated queries', vcr: { cassette_name: 'paginated_database_query' } do
-      pages = []
-      client.database_query(id: database_id, page_size: 1) do |page|
-        pages.concat page.results
-      end
-      expect(pages.size).to be >= 1
+    it 'updates', vcr: { cassette_name: 'update_database' } do
+      response = client.update_database(
+        database_id: database_id,
+        title: title
+      )
+      expect(response.title.first.plain_text).to eql 'Orbit 💜 Notion'
+    end
+
+    it 'retrieves', vcr: { cassette_name: 'database' } do
+      response = client.database(database_id: database_id)
+      expect(response.title.first.plain_text).to eql 'Orbit 💜 Notion'
     end
 
     it 'lists', vcr: { cassette_name: 'databases_list' } do

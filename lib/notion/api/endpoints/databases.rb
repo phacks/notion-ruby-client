@@ -16,7 +16,7 @@ module Notion
         # database properties and can be combined. The order of the sorts in the request
         # matter, with earlier sorts taking precedence over later ones.
         #
-        # @option options [id] :id
+        # @option options [id] :database_id
         #   Database to query.
         #
         # @option options [Object] :filter
@@ -34,13 +34,13 @@ module Notion
         # @option options [integer] :page_size
         #   The number of items from the full list desired in the response. Maximum: 100
         def database_query(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
+          throw ArgumentError.new('Required arguments :database_id missing') if options[:database_id].nil?
           if block_given?
             Pagination::Cursor.new(self, :database_query, options).each do |page|
               yield page
             end
           else
-            post("databases/#{options[:id]}/query", options)
+            post("databases/#{options[:database_id]}/query", options)
           end
         end
 
@@ -67,17 +67,39 @@ module Notion
         end
 
         #
+        # Updates an existing database as specified by the parameters.
+        #
+        # @option options [id] :database_id
+        #   Database to update.
+        #
+        # @option options [Object] :title
+        #   Title of database as it appears in Notion. An array of rich text objects.
+        #   If omitted, the database title will remain unchanged.
+        #
+        # @option options [Object] :properties
+        #   Updates to the property schema of a database.
+        #   If updating an existing property, the keys are the names or IDs
+        #   of the properties as they appear in Notion and the values
+        #   are property schema objects. If adding a new property, the key is
+        #   the name of the database property and the value is a property schema object.
+        #
+        def update_database(options = {})
+          throw ArgumentError.new('Required arguments :database_id missing') if options.dig(:database_id).nil?
+          patch("databases/#{options[:database_id]}", options)
+        end
+
+        #
         # Retrieves a Database object using the ID specified in the request.
         #
         # Returns a 404 HTTP response if the database doesn't exist, or if the bot
         # doesn't have access to the database. Returns a 429 HTTP response if the
         # request exceeds Notion's Request limits.
         #
-        # @option options [id] :id
+        # @option options [id] :database_id
         #   Database to get info on.
         def database(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
-          get("databases/#{options[:id]}")
+          throw ArgumentError.new('Required arguments :database_id missing') if options[:database_id].nil?
+          get("databases/#{options[:database_id]}")
         end
 
         #
