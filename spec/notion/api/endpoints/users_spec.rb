@@ -19,7 +19,7 @@ RSpec.describe Notion::Api::Endpoints::Users do
     end
 
     it 'retrieves', vcr: { cassette_name: 'users' } do
-      response = client.user(id: 'a8da8d30-c858-4c3d-87ad-3f2d477bd98d')
+      response = client.user(user_id: 'a8da8d30-c858-4c3d-87ad-3f2d477bd98d')
       expect(response.name).to eql 'Nicolas Goutay'
     end
   end
