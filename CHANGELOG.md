@@ -1,3 +1,22 @@
+### 0.1.0-beta1 (2021-08-29)
+
+#### New
+
+- Add support for the following new endpoints:
+  - [Update database](https://developers.notion.com/reference/update-a-database)
+  - [Update page](https://developers.notion.com/reference/patch-page)
+  - [Retrieve a block](https://developers.notion.com/reference/retrieve-a-block)
+  - [Update a block](https://developers.notion.com/reference/update-a-block)
+  - [Search](https://developers.notion.com/reference/search)
+- Update Notion API Version to `2021-08-16`
+- Add `bin/console` command for better DX
+- Overhauled documentation
+
+#### Upgrade instructions
+
+- Please refer to the Notion Changelog to see breaking changes for version `2021-08-16`
+- Regarding this gem, a lot of `id` parameters got renamed to `block_id`, `page_id`, `user_id` and `database_id`. You might need to rename those in your code as well.
+
 ### 0.0.8 (2021-07-27)
 
 - Bump `Notion-Version` header to `2021-05-13` (@H0R15H0)
