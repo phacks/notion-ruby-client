@@ -29,7 +29,7 @@ module Notion
         #   and checked (for to_do blocks) fields can be updated.
         def update_block(options = {})
           throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
-          patch("blocks/#{options[:block_id]}", options)
+          patch("blocks/#{options[:block_id]}", options.except(:block_id))
         end
 
         #
@@ -51,7 +51,7 @@ module Notion
               yield page
             end
           else
-            get("blocks/#{options[:block_id]}/children", options)
+            get("blocks/#{options[:block_id]}/children", options.except(:block_id))
           end
         end
 
@@ -73,7 +73,7 @@ module Notion
         #   Children blocks to append
         def block_append_children(options = {})
           throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
-          patch("blocks/#{options[:block_id]}/children", options)
+          patch("blocks/#{options[:block_id]}/children", options.except(:block_id))
         end
       end
     end

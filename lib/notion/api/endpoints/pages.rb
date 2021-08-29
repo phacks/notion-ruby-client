@@ -61,7 +61,7 @@ module Notion
         #   specific to the property type, e.g. {"checkbox": true}.
         def update_page(options = {})
           throw ArgumentError.new('Required arguments :page_id missing') if options[:page_id].nil?
-          patch("pages/#{options[:page_id]}", options)
+          patch("pages/#{options[:page_id]}", options.except(:page_id))
         end
       end
     end

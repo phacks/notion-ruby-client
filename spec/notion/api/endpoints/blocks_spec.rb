@@ -60,7 +60,7 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
 
     it 'appends', vcr: { cassette_name: 'block_append_children' } do
       response = client.block_append_children(block_id: block_id, children: children)
-      expect(response.id).to eql block_id
+      expect(response.results.first.type).to eql 'paragraph'
     end
   end
 end

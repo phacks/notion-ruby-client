@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'active_support/core_ext/hash/except'
 require 'faraday'
 require 'faraday_middleware'
 require 'json'
