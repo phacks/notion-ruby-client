@@ -40,7 +40,7 @@ module Notion
               yield page
             end
           else
-            post("databases/#{options[:database_id]}/query", options)
+            post("databases/#{options[:database_id]}/query", options.except(:database_id))
           end
         end
 
@@ -85,7 +85,7 @@ module Notion
         #
         def update_database(options = {})
           throw ArgumentError.new('Required arguments :database_id missing') if options.dig(:database_id).nil?
-          patch("databases/#{options[:database_id]}", options)
+          patch("databases/#{options[:database_id]}", options.except(:database_id))
         end
 
         #
