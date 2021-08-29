@@ -66,6 +66,9 @@ module Notion
         #   to a start_cursor attribute returned by a previous request's next_cursor.
         #   Default value fetches the first "page" of the collection.
         #   See pagination for more detail.
+        #
+        # @option options [integer] :page_size
+        #   The number of items from the full list desired in the response. Maximum: 100
         def database_query(options = {})
           throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
           if block_given?
@@ -85,6 +88,9 @@ module Notion
         # to a start_cursor attribute returned by a previous request's next_cursor.
         # Default value fetches the first "page" of the collection.
         # See pagination for more detail.
+        #
+        # @option options [integer] :page_size
+        #   The number of items from the full list desired in the response. Maximum: 100
         def databases_list(options = {})
           if block_given?
             Pagination::Cursor.new(self, :databases_list, options).each do |page|
