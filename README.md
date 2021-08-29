@@ -256,7 +256,7 @@ Retrieves a [Page object](https://developers.notion.com/reference-link/page) usi
 > :blue_book: Responses contains page **properties**, not page content. To fetch page content, use the [retrieve block children](#retrieve-block-children) endpoint.
 
 ```ruby
-client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+client.page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-page).
@@ -339,7 +339,7 @@ If the parent is a database, the new [property values](https://developers.notion
 properties = {
   "In stock": true
 }
-client.update_page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
+client.update_page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-page).

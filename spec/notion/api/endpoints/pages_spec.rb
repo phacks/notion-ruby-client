@@ -41,7 +41,7 @@ RSpec.describe Notion::Api::Endpoints::Pages do
 
   context 'pages' do
     it 'retrieves', vcr: { cassette_name: 'page' } do
-      response = client.page(id: page_id)
+      response = client.page(page_id: page_id)
       expect(response.properties.Name.type).to eql 'title'
       expect(response.properties.Name.title.first.plain_text).to eql 'A Notion page'
     end
@@ -66,7 +66,7 @@ RSpec.describe Notion::Api::Endpoints::Pages do
         ]
       }
       response = client.update_page(
-        id: page_id,
+        page_id: page_id,
         properties: properties
       )
       expect(response.properties.Name.title.first.plain_text).to eql 'A Notion page'
