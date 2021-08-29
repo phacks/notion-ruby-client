@@ -5,6 +5,16 @@ module Notion
     module Endpoints
       module Blocks
         #
+        # Retrieves a Block object using the ID specified.
+        #
+        # @option options [id] :block_id
+        #   Block to get children info on.
+        def block(options = {})
+          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
+          get("blocks/#{options[:block_id]}")
+        end
+
+        #
         # Returns a paginated array of Block objects contained in the
         # block of the requested path using the ID specified.
         #

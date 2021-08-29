@@ -346,6 +346,16 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 
 ### Blocks
 
+#### Retrieve a block
+
+Retrieves a [Block object](https://developers.notion.com/reference-link/block) using the ID specified.
+
+> :blue_book: If a block contains the key `has_children: true`, use the [Retrieve block children](#retrieve-block-children) endpoint to get the list of children
+
+```ruby
+client.block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6')
+```
+
 #### Retrieve block children
 
 Returns a paginated array of child [block objects](https://developers.notion.com/reference-link/block) contained in the block using the ID specified. In order to receive a complete representation of a block, you may need to recursively retrieve the block children of child blocks.
