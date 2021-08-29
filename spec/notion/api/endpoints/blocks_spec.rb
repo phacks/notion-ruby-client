@@ -29,6 +29,20 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
       expect(response).not_to be_empty
     end
 
+    it 'updates', vcr: { cassette_name: 'update_block' } do
+      to_do = {
+        'text': [
+          {
+            'text': { 'content': 'A todo' }
+          }
+        ],
+        'checked': true
+      }
+      to_do_block_id = '6e842658-eb3d-4ea9-9bbf-e86104151729'
+      response = client.update_block(block_id: to_do_block_id, 'to_do' => to_do)
+      expect(response.id).to eql to_do_block_id
+    end
+
     it 'children', vcr: { cassette_name: 'block_children' } do
       response = client.block_children(block_id: block_id)
       expect(response.results.length).to be >= 1

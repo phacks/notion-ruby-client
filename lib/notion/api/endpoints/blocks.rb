@@ -15,6 +15,24 @@ module Notion
         end
 
         #
+        # Updates the content for the specified block_id based on
+        # the block type. Supported fields based on the block object
+        # type (see Block object for available fields and the
+        # expected input for each field).
+        #
+        # @option options [id] :block_id
+        #   Block to get children info on.
+        #
+        # @option options [string] {type}
+        #   The block object type value with the properties to be
+        #   updated. Currently only text (for supported block types)
+        #   and checked (for to_do blocks) fields can be updated.
+        def update_block(options = {})
+          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
+          patch("blocks/#{options[:block_id]}", options)
+        end
+
+        #
         # Returns a paginated array of Block objects contained in the
         # block of the requested path using the ID specified.
         #

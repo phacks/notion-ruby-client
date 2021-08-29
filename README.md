@@ -219,6 +219,8 @@ title = [
 client.update_database(database_id: 'dd428e9dd3fe4171870da7a1902c748b', title: title)
 ```
 
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/update-a-database).
+
 #### Retrieve a database
 
 Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
@@ -355,6 +357,26 @@ Retrieves a [Block object](https://developers.notion.com/reference-link/block) u
 ```ruby
 client.block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6')
 ```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-block).
+
+#### Update a block
+
+Updates the content for the specified block_id based on the block type. Supported fields based on the block object type (see [Block object](https://developers.notion.com/reference-link/block#block-type-object) for available fields and the expected input for each field).
+
+**Note** The update replaces the entire value for a given field. If a field is omitted (ex: omitting checked when updating a to_do block), the value will not be changed.
+
+```ruby
+to_do = {
+  'text': [{
+    'text': { 'content': 'Lacinato kale' }
+    }],
+  'checked': false
+}
+client.update_block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6', 'to_do' => to_do)
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-block).
 
 #### Retrieve block children
 
