@@ -3,8 +3,8 @@ require 'spec_helper'
 
 RSpec.describe Notion::Api::Endpoints::Pages do
   let(:client) { Notion::Client.new }
-  let(:database_id) { 'ab7e7b22-7793-492a-ba6b-3295f8b19341' }
-  let(:page_id) { '2de466f0-9861-466b-9bc2-c987965da010' }
+  let(:database_id) { 'dd428e9d-d3fe-4171-870d-a7a1902c748b' }
+  let(:page_id) { 'c7fd1abe-8114-44ea-be77-9632ea33e581' }
   let(:properties) do
     {
       "Name": {
@@ -12,15 +12,6 @@ RSpec.describe Notion::Api::Endpoints::Pages do
           {
             "text": {
               "content": 'Another Notion page'
-            }
-          }
-        ]
-      },
-      "Description": {
-        "rich_text": [
-          {
-            "text": {
-              "content": 'Page description'
             }
           }
         ]
@@ -43,7 +34,7 @@ RSpec.describe Notion::Api::Endpoints::Pages do
     it 'retrieves', vcr: { cassette_name: 'page' } do
       response = client.page(page_id: page_id)
       expect(response.properties.Name.type).to eql 'title'
-      expect(response.properties.Name.title.first.plain_text).to eql 'A Notion page'
+      expect(response.properties.Name.title.first.plain_text).to eql 'Nicolas Goutay'
     end
 
     it 'creates', vcr: { cassette_name: 'create_page' } do
@@ -60,7 +51,7 @@ RSpec.describe Notion::Api::Endpoints::Pages do
         "Name": [
           {
             "text": {
-              "content": 'A Notion page'
+              "content": 'Nicolas Goutay'
             }
           }
         ]
@@ -69,7 +60,7 @@ RSpec.describe Notion::Api::Endpoints::Pages do
         page_id: page_id,
         properties: properties
       )
-      expect(response.properties.Name.title.first.plain_text).to eql 'A Notion page'
+      expect(response.properties.Name.title.first.plain_text).to eql 'Nicolas Goutay'
     end
   end
 end
