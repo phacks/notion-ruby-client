@@ -8,15 +8,15 @@ module Notion
         # Retrieves a 📄Page object  using the ID specified in the request path.
         # Note that this version of the API only exposes page properties, not page content
         #
-        # @option options [id] :id
+        # @option options [id] :page_id
         #   Page to get info on.
         #
         # @option options [bool] :archived
         #   Set to true to retrieve an archived page; must be false or omitted to
         #   retrieve a page that has not been archived. Defaults to false.
         def page(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
-          get("pages/#{options[:id]}")
+          throw ArgumentError.new('Required arguments :page_id missing') if options[:page_id].nil?
+          get("pages/#{options[:page_id]}")
         end
 
         #
@@ -50,7 +50,7 @@ module Notion
         # Note that this iteration of the API will only expose page properties, not page
         # content, as described in the data model.
         #
-        # @option options [id] :id
+        # @option options [id] :page_id
         #   Page to get info on.
         #
         # @option options [Object] :properties
@@ -60,8 +60,8 @@ module Notion
         #   appears in Notion, or property ID. value object Object containing a value
         #   specific to the property type, e.g. {"checkbox": true}.
         def update_page(options = {})
-          throw ArgumentError.new('Required arguments :id missing') if options[:id].nil?
-          patch("pages/#{options[:id]}", options)
+          throw ArgumentError.new('Required arguments :page_id missing') if options[:page_id].nil?
+          patch("pages/#{options[:page_id]}", options)
         end
       end
     end

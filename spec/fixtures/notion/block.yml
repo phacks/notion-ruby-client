@@ -1,12 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.notion.com/v1/databases
+    method: get
+    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4
     body:
-      encoding: UTF-8
-      string: "{\"parent\":{\"page_id\":\"c7fd1abe811444eabe779632ea33e581\"},\"title\":[{\"text\":{\"content\":\"Orbit
-        \U0001F49C Notion\"}}],\"properties\":{\"Name\":{\"title\":{}}}}"
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json; charset=utf-8
@@ -16,8 +15,6 @@ http_interactions:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
       - '2021-05-13'
-      Content-Type:
-      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -26,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 29 Aug 2021 16:47:37 GMT
+      - Sun, 29 Aug 2021 17:18:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -126,10 +123,10 @@ http_interactions:
         https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
         https://ton.twimg.com; frame-src https: http:; media-src https: http:'
       Set-Cookie:
-      - notion_browser_id=bfa607d2-c1fb-4b04-867c-27cbb230773e; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 May 2053 18:34:16 GMT; Secure
+      - notion_browser_id=ed2bab81-e9ec-4a9c-a01e-14eca03c443b; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:04:44 GMT; Secure
       Etag:
-      - W/"239-EkL3S7fHrOCAECCnlZLf9UtoE+Y"
+      - W/"1c9-U4a+4oIzorKGg5/+u2ioatQQABw"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -139,11 +136,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 6867431c188a32b0-CDG
+      - 68676fbc6b0f3a69-CDG
     body:
       encoding: UTF-8
-      string: "{\"object\":\"database\",\"id\":\"86817a39-3ac8-4c7f-929f-0dcb1d641c67\",\"cover\":null,\"icon\":null,\"created_time\":\"2021-08-29T16:47:00.000Z\",\"last_edited_time\":\"2021-08-29T16:47:00.000Z\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"Orbit
-        \U0001F49C Notion\",\"link\":null},\"annotations\":{\"bold\":false,\"italic\":false,\"strikethrough\":false,\"underline\":false,\"code\":false,\"color\":\"default\"},\"plain_text\":\"Orbit
-        \U0001F49C Notion\",\"href\":null}],\"properties\":{\"Name\":{\"id\":\"title\",\"name\":\"Name\",\"type\":\"title\",\"title\":{}}},\"parent\":{\"type\":\"page_id\",\"page_id\":\"c7fd1abe-8114-44ea-be77-9632ea33e581\"}}"
-  recorded_at: Sun, 29 Aug 2021 16:47:37 GMT
+      string: '{"object":"block","id":"32af3324-ba02-4516-ae88-5728a4d569f4","created_time":"2021-05-01T17:13:00.000Z","last_edited_time":"2021-08-29T17:17:00.000Z","has_children":true,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"A
+        paragraph with childrens","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A
+        paragraph with childrens","href":null}]}}'
+  recorded_at: Sun, 29 Aug 2021 17:18:04 GMT
 recorded_with: VCR 6.0.0

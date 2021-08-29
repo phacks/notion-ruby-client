@@ -114,11 +114,11 @@ all_users
 Gets a paginated array of [Page](https://developers.notion.com/reference/page) objects contained in the database, filtered and ordered according to the filter conditions and sort criteria provided in the request.
 
 ```ruby
-client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')  # retrieves the first page
+client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')  # retrieves the first page
 
-client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
+client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
 
-client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
+client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |page|
   # paginate through all pages
 end
 
@@ -145,7 +145,7 @@ filter = {
     }
   ]
 }
-client.database_query(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, filter: filter)
+client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, filter: filter)
 ```
 
 See [Pagination](#pagination) for details about how to iterate through the list.
@@ -165,7 +165,7 @@ title = [
       "link": nil
     }
   }
-],
+]
 properties = {
   "Name": {
     "title": {}
@@ -204,12 +204,29 @@ client.create_database(
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/create-a-database).
 
+#### Update a Database
+
+Updates an existing database as specified by the parameters.
+
+```ruby
+title = [
+  {
+    "text": {
+      "content": "Orbit 💜 Notion"
+    }
+  }
+]
+client.update_database(database_id: 'dd428e9dd3fe4171870da7a1902c748b', title: title)
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/update-a-database).
+
 #### Retrieve a database
 
 Retrieves a [Database object](https://developers.notion.com/reference-link/database) using the ID specified.
 
 ```ruby
-client.database(id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
+client.database(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-database).
@@ -241,7 +258,7 @@ Retrieves a [Page object](https://developers.notion.com/reference-link/page) usi
 > :blue_book: Responses contains page **properties**, not page content. To fetch page content, use the [retrieve block children](#retrieve-block-children) endpoint.
 
 ```ruby
-client.page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
+client.page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75')
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-page).
@@ -324,12 +341,42 @@ If the parent is a database, the new [property values](https://developers.notion
 properties = {
   "In stock": true
 }
-client.update_page(id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
+client.update_page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-page).
 
 ### Blocks
+
+#### Retrieve a block
+
+Retrieves a [Block object](https://developers.notion.com/reference-link/block) using the ID specified.
+
+> :blue_book: If a block contains the key `has_children: true`, use the [Retrieve block children](#retrieve-block-children) endpoint to get the list of children
+
+```ruby
+client.block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6')
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-block).
+
+#### Update a block
+
+Updates the content for the specified block_id based on the block type. Supported fields based on the block object type (see [Block object](https://developers.notion.com/reference-link/block#block-type-object) for available fields and the expected input for each field).
+
+**Note** The update replaces the entire value for a given field. If a field is omitted (ex: omitting checked when updating a to_do block), the value will not be changed.
+
+```ruby
+to_do = {
+  'text': [{
+    'text': { 'content': 'Lacinato kale' }
+    }],
+  'checked': false
+}
+client.update_block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6', 'to_do' => to_do)
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-block).
 
 #### Retrieve block children
 
