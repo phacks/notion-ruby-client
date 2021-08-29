@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?block_id=32af3324-ba02-4516-ae88-5728a4d569f4&page_size=1
+    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?page_size=1
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-05-13'
+      - '2021-08-16'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 29 Aug 2021 17:18:06 GMT
+      - Sun, 29 Aug 2021 17:45:03 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -123,8 +123,8 @@ http_interactions:
         https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
         https://ton.twimg.com; frame-src https: http:; media-src https: http:'
       Set-Cookie:
-      - notion_browser_id=3954c8cc-9aae-47bd-8eda-f5c8655c9701; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 May 2053 19:04:46 GMT; Secure
+      - notion_browser_id=daaae12a-cce1-4098-9c7d-7e88373c9522; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:31:43 GMT; Secure
       Etag:
       - W/"217-BsYX5QLp9UhoMNTePCXky8G5jqQ"
       Vary:
@@ -136,16 +136,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 68676fc6bfe908a3-CDG
+      - 686797410c5f3b6d-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"c183b81c-2973-41c1-867b-7faa0180403d","created_time":"2021-05-01T17:13:00.000Z","last_edited_time":"2021-05-01T17:13:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"The
         first child","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"The
         first child","href":null}]}}],"next_cursor":"51ab7653-230b-4332-89e5-4ca2b10e695b","has_more":true}'
-  recorded_at: Sun, 29 Aug 2021 17:18:06 GMT
+  recorded_at: Sun, 29 Aug 2021 17:45:03 GMT
 - request:
     method: get
-    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?block_id=32af3324-ba02-4516-ae88-5728a4d569f4&page_size=1&start_cursor=51ab7653-230b-4332-89e5-4ca2b10e695b
+    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?page_size=1&start_cursor=51ab7653-230b-4332-89e5-4ca2b10e695b
     body:
       encoding: US-ASCII
       string: ''
@@ -157,7 +157,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-05-13'
+      - '2021-08-16'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -166,7 +166,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 29 Aug 2021 17:18:07 GMT
+      - Sun, 29 Aug 2021 17:45:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -266,8 +266,8 @@ http_interactions:
         https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
         https://ton.twimg.com; frame-src https: http:; media-src https: http:'
       Set-Cookie:
-      - notion_browser_id=22c7ffda-d793-47bd-9519-a67e7c318052; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 May 2053 19:04:47 GMT; Secure
+      - notion_browser_id=a1aec440-cb97-4ff6-bbb2-86f294de1b60; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:31:44 GMT; Secure
       Etag:
       - W/"219-HaqBsxCAAIcZiz2bJbhHcTGlgzc"
       Vary:
@@ -279,16 +279,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 68676fcb9f7f3b25-CDG
+      - 686797460d673b85-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"51ab7653-230b-4332-89e5-4ca2b10e695b","created_time":"2021-05-01T17:13:00.000Z","last_edited_time":"2021-05-01T17:13:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"The
         second child","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"The
         second child","href":null}]}}],"next_cursor":"722ec5e1-f620-4860-a5fd-6de0430db4a8","has_more":true}'
-  recorded_at: Sun, 29 Aug 2021 17:18:07 GMT
+  recorded_at: Sun, 29 Aug 2021 17:45:04 GMT
 - request:
     method: get
-    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?block_id=32af3324-ba02-4516-ae88-5728a4d569f4&page_size=1&start_cursor=722ec5e1-f620-4860-a5fd-6de0430db4a8
+    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?page_size=1&start_cursor=722ec5e1-f620-4860-a5fd-6de0430db4a8
     body:
       encoding: US-ASCII
       string: ''
@@ -300,7 +300,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-05-13'
+      - '2021-08-16'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -309,7 +309,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 29 Aug 2021 17:18:08 GMT
+      - Sun, 29 Aug 2021 17:45:05 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -409,10 +409,10 @@ http_interactions:
         https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
         https://ton.twimg.com; frame-src https: http:; media-src https: http:'
       Set-Cookie:
-      - notion_browser_id=b769f94e-d5c2-4392-b4b8-bb0e42f5c6cc; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 May 2053 19:04:48 GMT; Secure
+      - notion_browser_id=c9f9c377-7531-483b-9a08-4f40c4820a0f; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:31:45 GMT; Secure
       Etag:
-      - W/"1f8-nTm8NHgLrfAGqbxxPnVa6VlmtSA"
+      - W/"219-l6W9cQbSU5N+J2IRdLhsfF6TcQs"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -422,11 +422,154 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 68676fd08dcb087b-CDG
+      - 6867974bcacc4013-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"722ec5e1-f620-4860-a5fd-6de0430db4a8","created_time":"2021-08-29T17:17:00.000Z","last_edited_time":"2021-08-29T17:17:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"Another
         children","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
+        children","href":null}]}}],"next_cursor":"a6cb4553-bdf1-4080-84fa-3e1bceba6912","has_more":true}'
+  recorded_at: Sun, 29 Aug 2021 17:45:05 GMT
+- request:
+    method: get
+    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?page_size=1&start_cursor=a6cb4553-bdf1-4080-84fa-3e1bceba6912
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Notion Ruby Client/0.0.8
+      Authorization:
+      - Bearer <NOTION_API_TOKEN>
+      Notion-Version:
+      - '2021-08-16'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 29 Aug 2021 17:45:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Dns-Prefetch-Control:
+      - 'off'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=5184000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      Content-Security-Policy:
+      - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
+        https://apis.google.com https://api.amplitude.com https://widget.intercom.io
+        https://js.intercomcdn.com https://logs-01.loggly.com https://cdn.segment.com
+        https://analytics.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://embed.typeform.com https://admin.typeform.com
+        https://public.profitwell.com js.sentry-cdn.com https://js.chilipiper.com
+        https://platform.twitter.com https://cdn.syndication.twimg.com https://www.googletagmanager.com
+        https://x.clearbitjs.com https://client-registry.mutinycdn.com https://client.mutinycdn.com/
+        https://user-data.mutinycdn.com; connect-src ''self'' https://msgstore.www.notion.so
+        wss://msgstore.www.notion.so ws://localhost:* https://notion-emojis.s3-us-west-2.amazonaws.com
+        https://s3-us-west-2.amazonaws.com https://s3.us-west-2.amazonaws.com https://notion-production-snapshots-2.s3.us-west-2.amazonaws.com
+        https: http: https://api.amplitude.com https://api.embed.ly https://js.intercomcdn.com
+        https://api-iam.intercom.io wss://nexus-websocket-a.intercom.io https://logs-01.loggly.com
+        https://cdn.segment.com https://api.segment.io https://analytics.pgncs.notion.so
+        https://api.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://cdn.contentful.com https://preview.contentful.com
+        https://images.ctfassets.net https://www2.profitwell.com https://tracking.chilipiper.com
+        https://api.chilipiper.com https://api.unsplash.com https://boards-api.greenhouse.io
+        https://user-data.mutinycdn.com https://api-v2.mutinyhq.io https://api.statuspage.io
+        https://pgncd.notion.so; font-src ''self'' data: https://cdnjs.cloudflare.com
+        https://js.intercomcdn.com; img-src ''self'' data: blob: https: https://platform.twitter.com
+        https://syndication.twitter.com https://pbs.twimg.com https://ton.twimg.com
+        www.googletagmanager.com; style-src ''self'' ''unsafe-inline'' https://cdnjs.cloudflare.com
+        https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
+        https://ton.twimg.com; frame-src https: http:; media-src https: http:'
+      X-Content-Security-Policy:
+      - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
+        https://apis.google.com https://api.amplitude.com https://widget.intercom.io
+        https://js.intercomcdn.com https://logs-01.loggly.com https://cdn.segment.com
+        https://analytics.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://embed.typeform.com https://admin.typeform.com
+        https://public.profitwell.com js.sentry-cdn.com https://js.chilipiper.com
+        https://platform.twitter.com https://cdn.syndication.twimg.com https://www.googletagmanager.com
+        https://x.clearbitjs.com https://client-registry.mutinycdn.com https://client.mutinycdn.com/
+        https://user-data.mutinycdn.com; connect-src ''self'' https://msgstore.www.notion.so
+        wss://msgstore.www.notion.so ws://localhost:* https://notion-emojis.s3-us-west-2.amazonaws.com
+        https://s3-us-west-2.amazonaws.com https://s3.us-west-2.amazonaws.com https://notion-production-snapshots-2.s3.us-west-2.amazonaws.com
+        https: http: https://api.amplitude.com https://api.embed.ly https://js.intercomcdn.com
+        https://api-iam.intercom.io wss://nexus-websocket-a.intercom.io https://logs-01.loggly.com
+        https://cdn.segment.com https://api.segment.io https://analytics.pgncs.notion.so
+        https://api.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://cdn.contentful.com https://preview.contentful.com
+        https://images.ctfassets.net https://www2.profitwell.com https://tracking.chilipiper.com
+        https://api.chilipiper.com https://api.unsplash.com https://boards-api.greenhouse.io
+        https://user-data.mutinycdn.com https://api-v2.mutinyhq.io https://api.statuspage.io
+        https://pgncd.notion.so; font-src ''self'' data: https://cdnjs.cloudflare.com
+        https://js.intercomcdn.com; img-src ''self'' data: blob: https: https://platform.twitter.com
+        https://syndication.twitter.com https://pbs.twimg.com https://ton.twimg.com
+        www.googletagmanager.com; style-src ''self'' ''unsafe-inline'' https://cdnjs.cloudflare.com
+        https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
+        https://ton.twimg.com; frame-src https: http:; media-src https: http:'
+      X-Webkit-Csp:
+      - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
+        https://apis.google.com https://api.amplitude.com https://widget.intercom.io
+        https://js.intercomcdn.com https://logs-01.loggly.com https://cdn.segment.com
+        https://analytics.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://embed.typeform.com https://admin.typeform.com
+        https://public.profitwell.com js.sentry-cdn.com https://js.chilipiper.com
+        https://platform.twitter.com https://cdn.syndication.twimg.com https://www.googletagmanager.com
+        https://x.clearbitjs.com https://client-registry.mutinycdn.com https://client.mutinycdn.com/
+        https://user-data.mutinycdn.com; connect-src ''self'' https://msgstore.www.notion.so
+        wss://msgstore.www.notion.so ws://localhost:* https://notion-emojis.s3-us-west-2.amazonaws.com
+        https://s3-us-west-2.amazonaws.com https://s3.us-west-2.amazonaws.com https://notion-production-snapshots-2.s3.us-west-2.amazonaws.com
+        https: http: https://api.amplitude.com https://api.embed.ly https://js.intercomcdn.com
+        https://api-iam.intercom.io wss://nexus-websocket-a.intercom.io https://logs-01.loggly.com
+        https://cdn.segment.com https://api.segment.io https://analytics.pgncs.notion.so
+        https://api.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://cdn.contentful.com https://preview.contentful.com
+        https://images.ctfassets.net https://www2.profitwell.com https://tracking.chilipiper.com
+        https://api.chilipiper.com https://api.unsplash.com https://boards-api.greenhouse.io
+        https://user-data.mutinycdn.com https://api-v2.mutinyhq.io https://api.statuspage.io
+        https://pgncd.notion.so; font-src ''self'' data: https://cdnjs.cloudflare.com
+        https://js.intercomcdn.com; img-src ''self'' data: blob: https: https://platform.twitter.com
+        https://syndication.twitter.com https://pbs.twimg.com https://ton.twimg.com
+        www.googletagmanager.com; style-src ''self'' ''unsafe-inline'' https://cdnjs.cloudflare.com
+        https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
+        https://ton.twimg.com; frame-src https: http:; media-src https: http:'
+      Set-Cookie:
+      - notion_browser_id=f2736075-4f73-453d-8728-04468bf8e7d9; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:31:46 GMT; Secure
+      Etag:
+      - W/"1f8-vq1PZHzZhe2D041J6ghX+Z0Lbcc"
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 686797519c6c0828-CDG
+    body:
+      encoding: UTF-8
+      string: '{"object":"list","results":[{"object":"block","id":"a6cb4553-bdf1-4080-84fa-3e1bceba6912","created_time":"2021-08-29T17:18:00.000Z","last_edited_time":"2021-08-29T17:18:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"Another
+        children","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
         children","href":null}]}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 29 Aug 2021 17:18:08 GMT
+  recorded_at: Sun, 29 Aug 2021 17:45:06 GMT
 recorded_with: VCR 6.0.0

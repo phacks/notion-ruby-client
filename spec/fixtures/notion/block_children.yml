@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children?block_id=32af3324-ba02-4516-ae88-5728a4d569f4
+    uri: https://api.notion.com/v1/blocks/32af3324-ba02-4516-ae88-5728a4d569f4/children
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-05-13'
+      - '2021-08-16'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 29 Aug 2021 17:18:05 GMT
+      - Sun, 29 Aug 2021 17:45:02 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -123,10 +123,10 @@ http_interactions:
         https://github.githubassets.com https://js.chilipiper.com https://platform.twitter.com
         https://ton.twimg.com; frame-src https: http:; media-src https: http:'
       Set-Cookie:
-      - notion_browser_id=85a24104-9c8f-46b4-857f-5666e1d3fb82; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 May 2053 19:04:45 GMT; Secure
+      - notion_browser_id=33cfb86b-fefe-4454-96b5-f51730549269; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 May 2053 19:31:42 GMT; Secure
       Etag:
-      - W/"564-aEewFzwef8w9e/llmwKHG0TX8DM"
+      - W/"71b-BU6l1eTv4o3zbg3FtFJJVNYrjBY"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -136,7 +136,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 68676fc15d9908a7-CDG
+      - 6867973e2eb6ee75-CDG
     body:
       encoding: UTF-8
       string: '{"object":"list","results":[{"object":"block","id":"c183b81c-2973-41c1-867b-7faa0180403d","created_time":"2021-05-01T17:13:00.000Z","last_edited_time":"2021-05-01T17:13:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"The
@@ -145,6 +145,8 @@ http_interactions:
         second child","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"The
         second child","href":null}]}},{"object":"block","id":"722ec5e1-f620-4860-a5fd-6de0430db4a8","created_time":"2021-08-29T17:17:00.000Z","last_edited_time":"2021-08-29T17:17:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"Another
         children","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
+        children","href":null}]}},{"object":"block","id":"a6cb4553-bdf1-4080-84fa-3e1bceba6912","created_time":"2021-08-29T17:18:00.000Z","last_edited_time":"2021-08-29T17:18:00.000Z","has_children":false,"type":"paragraph","paragraph":{"text":[{"type":"text","text":{"content":"Another
+        children","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Another
         children","href":null}]}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 29 Aug 2021 17:18:05 GMT
+  recorded_at: Sun, 29 Aug 2021 17:45:02 GMT
 recorded_with: VCR 6.0.0
