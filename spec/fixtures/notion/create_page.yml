@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"parent":{"database_id":"dd428e9d-d3fe-4171-870d-a7a1902c748b"},"properties":{"Name":{"title":[{"text":{"content":"Another
-        Notion page"}}]}},"children":[{"object":"block","type":"heading_2","heading_2":{"text":[{"type":"text","text":{"content":"A
+        Notion page"}}]}},"children":[{"object":"block","type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"A
         heading"}}]}}]}'
     headers:
       Accept:
@@ -16,7 +16,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Content-Type:
       - application/json
       Accept-Encoding:

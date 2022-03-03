@@ -10,7 +10,7 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
         'object': 'block',
         'type': 'paragraph',
         'paragraph': {
-          'text': [
+          'rich_text': [
             {
               'type': 'text',
               'text': {
@@ -46,8 +46,8 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
     it 'children', vcr: { cassette_name: 'block_children' } do
       response = client.block_children(block_id: block_id)
       expect(response.results.length).to be >= 1
-      expect(response.results[0].paragraph.text.first.plain_text).to eql 'The first child'
-      expect(response.results[1].paragraph.text.first.plain_text).to eql 'The second child'
+      expect(response.results[0].paragraph.rich_text.first.plain_text).to eql 'The first child'
+      expect(response.results[1].paragraph.rich_text.first.plain_text).to eql 'The second child'
     end
 
     it 'paginated children', vcr: { cassette_name: 'paginated_block_children' } do
