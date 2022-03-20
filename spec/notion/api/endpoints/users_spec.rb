@@ -5,6 +5,11 @@ RSpec.describe Notion::Api::Endpoints::Users do
   let(:client) { Notion::Client.new }
 
   context 'users' do
+    it 'me', vcr: { cassette_name: 'users_me' } do
+      response = client.me
+      expect(response.name).to eql 'Notion to Orbit'
+    end
+
     it 'lists', vcr: { cassette_name: 'users_list' } do
       response = client.users_list
       expect(response.results.size).to be 1

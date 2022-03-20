@@ -31,6 +31,7 @@ A Ruby client for the Notion API.
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
   - [Users](#users)
+    - [Retrieve your token's bot user](#retrieve-your-tokens-bot-user)
     - [Retrieve a user](#retrieve-a-user)
     - [List all users](#list-all-users)
   - [Search](#search)
@@ -433,6 +434,16 @@ client.block_append_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', c
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
 
 ### Users
+
+#### Retrieve your token's bot user
+
+Retrieves the bot [User](https://developers.notion.com/reference/user) associated with the API token provided in the authorization header. The bot will have an `owner` field with information about the person who authorized the integration.
+
+```ruby
+client.me
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-self).
 
 #### Retrieve a user
 

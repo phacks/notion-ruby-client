@@ -5,6 +5,14 @@ module Notion
     module Endpoints
       module Users
         #
+        # Retrieves the bot User associated with the API token provided in
+        # the authorization header. The bot will have an `owner` field with
+        # information about the person who authorized the integration.
+        def me
+          get("users/me")
+        end
+
+        #
         # Retrieves a User object using the ID specified in the request.
         #
         # @option options [id] :user_id
