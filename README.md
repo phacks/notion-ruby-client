@@ -24,6 +24,7 @@ A Ruby client for the Notion API.
     - [Retrieve a page](#retrieve-a-page)
     - [Create a page](#create-a-page)
     - [Update page](#update-page)
+    - [Retrieve a page property item](#retrieve-a-page-property-item)
   - [Blocks](#blocks)
     - [Retrieve a block](#retrieve-a-block)
     - [Update a block](#update-a-block)
@@ -349,6 +350,21 @@ client.update_page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: 
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-page).
+
+#### Retrieve a page property item
+
+Retrieves a `property_item` object for a given `page_id` and `property_id`. Depending on the property type, the object returned will either be a value or a [paginated](#pagination) list of property item values. See [Property item objects](https://developers.notion.com/reference/property-item-object) for specifics.
+
+To obtain `property_id`'s, use the [Retrieve a database endpoint](#retrieve-a-database).
+
+```ruby
+client.page_property_item(
+  page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75',
+  property_id: 'aBcD123'
+)
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-page-property).
 
 ### Blocks
 
