@@ -5,6 +5,7 @@ RSpec.describe Notion::Api::Endpoints::Pages do
   let(:client) { Notion::Client.new }
   let(:database_id) { 'dd428e9d-d3fe-4171-870d-a7a1902c748b' }
   let(:page_id) { 'c7fd1abe-8114-44ea-be77-9632ea33e581' }
+  let(:property_id) { '%5BIFC' }
   let(:properties) do
     {
       "Name": {
@@ -61,6 +62,11 @@ RSpec.describe Notion::Api::Endpoints::Pages do
         properties: properties
       )
       expect(response.properties.Name.title.first.plain_text).to eql 'Nicolas Goutay'
+    end
+
+    it 'retrieves a page property item', vcr: { cassette_name: 'page_property_item' } do
+      response = client.page_property_item(page_id: page_id, property_id: property_id)
+      expect(response.email).to eql 'nicolas@orbit.love'
     end
   end
 end
