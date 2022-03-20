@@ -33,6 +33,22 @@ module Notion
         end
 
         #
+        # Sets a Block object, including page blocks, to archived: true
+        # using the ID specified. Note: in the Notion UI application, this
+        # moves the block to the "Trash" where it can still be accessed and
+        # restored.
+        #
+        # To restore the block with the API, use the Update a block or
+        # Update page respectively.
+        #
+        # @option options [id] :block_id
+        #   Block to get children info on.
+        def delete_block(options = {})
+          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
+          delete("blocks/#{options[:block_id]}")
+        end
+
+        #
         # Returns a paginated array of Block objects contained in the
         # block of the requested path using the ID specified.
         #

@@ -24,10 +24,15 @@ A Ruby client for the Notion API.
     - [Retrieve a page](#retrieve-a-page)
     - [Create a page](#create-a-page)
     - [Update page](#update-page)
+    - [Retrieve a page property item](#retrieve-a-page-property-item)
   - [Blocks](#blocks)
+    - [Retrieve a block](#retrieve-a-block)
+    - [Update a block](#update-a-block)
+    - [Delete a block](#delete-a-block)
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
   - [Users](#users)
+    - [Retrieve your token's bot user](#retrieve-your-tokens-bot-user)
     - [Retrieve a user](#retrieve-a-user)
     - [List all users](#list-all-users)
   - [Search](#search)
@@ -346,6 +351,21 @@ client.update_page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: 
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-page).
 
+#### Retrieve a page property item
+
+Retrieves a `property_item` object for a given `page_id` and `property_id`. Depending on the property type, the object returned will either be a value or a [paginated](#pagination) list of property item values. See [Property item objects](https://developers.notion.com/reference/property-item-object) for specifics.
+
+To obtain `property_id`'s, use the [Retrieve a database endpoint](#retrieve-a-database).
+
+```ruby
+client.page_property_item(
+  page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75',
+  property_id: 'aBcD123'
+)
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-page-property).
+
 ### Blocks
 
 #### Retrieve a block
@@ -377,6 +397,18 @@ client.update_block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6', 'to_do' =>
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-block).
+
+#### Delete a block
+
+Sets a [Block object](https://developers.notion.com/reference/block), including page blocks, to archived: true using the ID specified. Note: in the Notion UI application, this moves the block to the "Trash" where it can still be accessed and restored.
+
+To restore the block with the API, use the [Update a block](#update-a-block) or [Update page](#update-page) respectively.
+
+```ruby
+client.delete_block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6')
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/delete-a-block).
 
 #### Retrieve block children
 
@@ -418,6 +450,16 @@ client.block_append_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', c
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
 
 ### Users
+
+#### Retrieve your token's bot user
+
+Retrieves the bot [User](https://developers.notion.com/reference/user) associated with the API token provided in the authorization header. The bot will have an `owner` field with information about the person who authorized the integration.
+
+```ruby
+client.me
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/get-self).
 
 #### Retrieve a user
 

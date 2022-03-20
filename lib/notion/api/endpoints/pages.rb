@@ -15,7 +15,7 @@ module Notion
         #   Set to true to retrieve an archived page; must be false or omitted to
         #   retrieve a page that has not been archived. Defaults to false.
         def page(options = {})
-          throw ArgumentError.new('Required arguments :page_id missing') if options[:page_id].nil?
+          throw ArgumentError.new('Required argument :page_id missing') if options[:page_id].nil?
           get("pages/#{options[:page_id]}")
         end
 
@@ -38,7 +38,7 @@ module Notion
         # @option options [Object] :children
         #   An optional array of Block objects representing the Page’s content
         def create_page(options = {})
-          throw ArgumentError.new('Required arguments :parent.database_id missing') if options.dig(:parent, :database_id).nil?
+          throw ArgumentError.new('Required argument :parent.database_id missing') if options.dig(:parent, :database_id).nil?
           post("pages", options)
         end
 
@@ -60,8 +60,25 @@ module Notion
         #   appears in Notion, or property ID. value object Object containing a value
         #   specific to the property type, e.g. {"checkbox": true}.
         def update_page(options = {})
-          throw ArgumentError.new('Required arguments :page_id missing') if options[:page_id].nil?
+          throw ArgumentError.new('Required argument :page_id missing') if options[:page_id].nil?
           patch("pages/#{options[:page_id]}", options.except(:page_id))
+        end
+
+        #
+        # Retrieves a `property_item` object for a given `page_id` and `property_id`.
+        # Depending on the property type, the object returned will either be a value
+        # or a paginated list of property item values.
+        #
+        # @option options [id] :page_id
+        #   Page to get info on.
+        #
+        # @option options [id] :property_id
+        #   Property to get info on.
+        #
+        def page_property_item(options = {})
+          throw ArgumentError.new('Required argument :page_id missing') if options[:page_id].nil?
+          throw ArgumentError.new('Required argument :property_id missing') if options[:property_id].nil?
+          get("pages/#{options[:page_id]}/properties/#{options[:property_id]}")
         end
       end
     end
