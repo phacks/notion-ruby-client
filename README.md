@@ -27,6 +27,7 @@ A Ruby client for the Notion API.
   - [Blocks](#blocks)
     - [Retrieve a block](#retrieve-a-block)
     - [Update a block](#update-a-block)
+    - [Delete a block](#delete-a-block)
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
   - [Users](#users)
@@ -379,6 +380,18 @@ client.update_block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6', 'to_do' =>
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-block).
+
+#### Delete a block
+
+Sets a [Block object](https://developers.notion.com/reference/block), including page blocks, to archived: true using the ID specified. Note: in the Notion UI application, this moves the block to the "Trash" where it can still be accessed and restored.
+
+To restore the block with the API, use the [Update a block](#update-a-block) or [Update page](#update-page) respectively.
+
+```ruby
+client.delete_block(block_id: '9bc30ad4-9373-46a5-84ab-0a7845ee52e6')
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/delete-a-block).
 
 #### Retrieve block children
 
