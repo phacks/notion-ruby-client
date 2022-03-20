@@ -18,6 +18,7 @@ A Ruby client for the Notion API.
   - [Databases](#databases)
     - [Query a database](#query-a-database)
     - [Create a Database](#create-a-database)
+    - [Update a Database](#update-a-database)
     - [Retrieve a database](#retrieve-a-database)
     - [List databases](#list-databases)
   - [Pages](#pages)
@@ -235,6 +236,19 @@ client.database(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-database).
+
+#### Update a database
+
+Updates an existing database as specified by the parameters.
+
+```ruby
+client.update_database(
+  database_id: database_id,
+  title: title
+)
+```
+
+See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/update-a-database).
 
 #### List databases
 
