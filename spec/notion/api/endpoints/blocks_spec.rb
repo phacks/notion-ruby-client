@@ -43,6 +43,12 @@ RSpec.describe Notion::Api::Endpoints::Blocks do
       expect(response.id).to eql to_do_block_id
     end
 
+    it 'deletes', vcr: { cassette_name: 'delete_block' } do
+      block_id = '77b5d405a5e840229c70b7766d1e8c4b'
+      response = client.delete_block(block_id: block_id)
+      expect(response).not_to be_empty
+    end
+
     it 'children', vcr: { cassette_name: 'block_children' } do
       response = client.block_children(block_id: block_id)
       expect(response.results.length).to be >= 1
