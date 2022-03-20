@@ -25,6 +25,8 @@ A Ruby client for the Notion API.
     - [Create a page](#create-a-page)
     - [Update page](#update-page)
   - [Blocks](#blocks)
+    - [Retrieve a block](#retrieve-a-block)
+    - [Update a block](#update-a-block)
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
   - [Users](#users)
