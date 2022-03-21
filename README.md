@@ -300,23 +300,27 @@ properties = {
     ]
   },
   "Food group": {
-    "name": "🥦 Vegetable"
+    "select": {
+      "name": "🥦 Vegetable"
+    }
   },
-  "Price": 2.5
+  "Price": {
+    "number": 2.5
+  }
 }
 children = [
   {
     "object": "block",
     "type": "heading_2",
     "heading_2": {
-      "text": [{ "type": "text", "text": { "content": "Lacinato kale" } }]
+      "rich_text": [{ "type": "text", "text": { "content": "Lacinato kale" } }]
     }
   },
   {
     "object": "block",
     "type": "paragraph",
     "paragraph": {
-      "text": [
+      "rich_text": [
         {
           "type": "text",
           "text": {
