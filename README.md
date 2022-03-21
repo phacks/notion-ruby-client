@@ -237,19 +237,6 @@ client.database(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-database).
 
-#### Update a database
-
-Updates an existing database as specified by the parameters.
-
-```ruby
-client.update_database(
-  database_id: database_id,
-  title: title
-)
-```
-
-See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/update-a-database).
-
 #### List databases
 
 List all [Databases](https://developers.notion.com/reference-link/database) shared with the authenticated integration.
