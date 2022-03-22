@@ -18,6 +18,7 @@ A Ruby client for the Notion API.
   - [Databases](#databases)
     - [Query a database](#query-a-database)
     - [Create a Database](#create-a-database)
+    - [Update a Database](#update-a-database)
     - [Retrieve a database](#retrieve-a-database)
     - [List databases](#list-databases)
   - [Pages](#pages)
@@ -130,22 +131,22 @@ end
 # Filter and sort the database
 sort = [
   {
-    "property": "Last ordered",
-    "direction": "ascending"
+    'property': 'Last ordered',
+    'direction': 'ascending'
   }
 ]
 filter = {
-  "or": [
+  'or': [
     {
-      "property": "In stock",
-      "checkbox": {
-        "equals": true
+      'property': 'In stock',
+      'checkbox': {
+        'equals': true
       }
     },
     {
-      "property": "Cost of next trip",
-      "number": {
-        "greater_than_or_equal_to": 2
+      'property': 'Cost of next trip',
+      'number': {
+        'greater_than_or_equal_to': 2
       }
     }
   ]
@@ -164,37 +165,37 @@ Creates a database as a subpage in the specified parent page, with the specified
 ```ruby
 title = [
   {
-    "type": "text",
-    "text": {
-      "content": "Grocery List",
-      "link": nil
+    'type': 'text',
+    'text': {
+      'content': 'Grocery List',
+      'link': nil
     }
   }
 ]
 properties = {
-  "Name": {
-    "title": {}
+  'Name': {
+    'title': {}
   },
-  "Description": {
-    "rich_text": {}
+  'Description': {
+    'rich_text': {}
   },
-  "In stock": {
-    "checkbox": {}
+  'In stock': {
+    'checkbox': {}
   },
-  "Food group": {
-    "select": {
-      "options": [
+  'Food group': {
+    'select': {
+      'options': [
         {
-          "name": "🥦Vegetable",
-          "color": "green"
+          'name': '🥦Vegetable',
+          'color': 'green'
         },
         {
-          "name": "🍎Fruit",
-          "color": "red"
+          'name': '🍎Fruit',
+          'color': 'red'
         },
         {
-          "name": "💪Protein",
-          "color": "yellow"
+          'name': '💪Protein',
+          'color': 'yellow'
         }
       ]
     }
@@ -216,8 +217,8 @@ Updates an existing database as specified by the parameters.
 ```ruby
 title = [
   {
-    "text": {
-      "content": "Orbit 💜 Notion"
+    'text': {
+      'content': 'Orbit 💜 Notion'
     }
   }
 ]
@@ -280,47 +281,54 @@ The new page may include page content, described as [blocks](https://developers.
 
 ```ruby
 properties = {
-  "Name": {
-    "title": [
+  'Name': {
+    'title': [
       {
-        "text": {
-          "content": "Tuscan Kale"
+        'text': {
+          'content': 'Tuscan Kale'
         }
       }
     ]
   },
-  "Description": {
-    "rich_text": [
+  'Description': {
+    'rich_text': [
       {
-        "text": {
-          "content": "A dark green leafy vegetable"
+        'text': {
+          'content': 'A dark green leafy vegetable'
         }
       }
     ]
   },
-  "Food group": {
-    "name": "🥦 Vegetable"
+  'Food group': {
+    'select': {
+      'name': '🥦 Vegetable'
+    }
   },
-  "Price": 2.5
+  'Price': {
+    'number': 2.5
+  }
 }
 children = [
   {
-    "object": "block",
-    "type": "heading_2",
-    "heading_2": {
-      "text": [{ "type": "text", "text": { "content": "Lacinato kale" } }]
+    'object': 'block',
+    'type': 'heading_2',
+    'heading_2': {
+      'rich_text': [{
+        'type": 'text',
+        'text': { 'content': 'Lacinato kale' }
+      }]
     }
   },
   {
-    "object": "block",
-    "type": "paragraph",
-    "paragraph": {
-      "text": [
+    'object': 'block',
+    'type": 'paragraph',
+    'paragraph': {
+      'rich_text': [
         {
-          "type": "text",
-          "text": {
-            "content": "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
-            "link": { "url": "https://en.wikipedia.org/wiki/Lacinato_kale" }
+          'type': 'text',
+          'text': {
+            'content': 'Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.',
+            'link': { 'url': 'https://en.wikipedia.org/wiki/Lacinato_kale' }
           }
         }
       ]
@@ -344,7 +352,9 @@ If the parent is a database, the new [property values](https://developers.notion
 
 ```ruby
 properties = {
-  "In stock": true
+  'In stock': {
+    'checkbox': true
+  }
 }
 client.update_page(page_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', properties: properties)
 ```
@@ -388,7 +398,8 @@ Updates the content for the specified block_id based on the block type. Supporte
 
 ```ruby
 to_do = {
-  'text': [{
+  'rich_text': [{
+    'type': 'text',
     'text': { 'content': 'Lacinato kale' }
     }],
   'checked': false
@@ -439,8 +450,11 @@ children = [
   {
     "object": 'block',
     "type": 'heading_2',
-    "heading_2": {
-      "text": [{ "type": 'text', "text": { "content": 'A Second-level Heading' } }]
+    'heading_2': {
+      'rich_text': [{
+        'type': 'text',
+        'text': { 'content': 'A Second-level Heading' }
+      }]
     }
   }
 ]

@@ -34,3 +34,18 @@ You can check that everything works as intended by running the specs:
 ```
 bundle exec rake
 ```
+
+## Interactive console
+
+You can run
+
+```
+bin/console
+```
+
+to start an IRB (interactive Ruby console) session with all the gem files loaded.
+Usually, you’d start such sessions by defining your `client`:
+
+```
+client = Notion::Client.new(token: <Your Notion API token>)
+```
