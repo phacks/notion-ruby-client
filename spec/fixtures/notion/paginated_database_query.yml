@@ -14,7 +14,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Content-Type:
       - application/json
       Accept-Encoding:

@@ -101,27 +101,6 @@ module Notion
           throw ArgumentError.new('Required arguments :database_id missing') if options[:database_id].nil?
           get("databases/#{options[:database_id]}")
         end
-
-        #
-        # Returns a paginated list of Databases objects for the workspace.
-        #
-        # @option options [UUID] :start_cursor
-        # Paginate through collections of data by setting the cursor parameter
-        # to a start_cursor attribute returned by a previous request's next_cursor.
-        # Default value fetches the first "page" of the collection.
-        # See pagination for more detail.
-        #
-        # @option options [integer] :page_size
-        #   The number of items from the full list desired in the response. Maximum: 100
-        def databases_list(options = {})
-          if block_given?
-            Pagination::Cursor.new(self, :databases_list, options).each do |page|
-              yield page
-            end
-          else
-            get('databases', options)
-          end
-        end
       end
     end
   end

@@ -14,7 +14,7 @@ http_interactions:
       Authorization:
       - Bearer <NOTION_API_TOKEN>
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Content-Type:
       - application/json
       Content-Length:
@@ -149,6 +149,6 @@ http_interactions:
         Email":{"id":"%5BIFC","type":"email","email":"nicolas@orbit.love"},"Send to
         Orbit":{"id":"%5EoR%3F","type":"checkbox","checkbox":true},"Date":{"id":"g%60km","type":"date","date":null},"Name":{"id":"title","type":"title","title":[{"type":"text","text":{"content":"Nicolas
         Goutay","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Nicolas
-        Goutay","href":null}]}},"url":"https://www.notion.so/Nicolas-Goutay-c7fd1abe811444eabe779632ea33e581"}],"next_cursor":null,"has_more":false}'
+        Goutay","href":null}]}},"url":"https://www.notion.so/Nicolas-Goutay-c7fd1abe811444eabe779632ea33e581"}],"next_cursor":null,"has_more":false,"type":"page","page":{}}'
   recorded_at: Sun, 29 Aug 2021 17:47:59 GMT
 recorded_with: VCR 6.0.0
