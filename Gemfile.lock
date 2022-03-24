@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     notion-ruby-client (1.0.0.pre.beta1)
-      activesupport (~> 6)
+      activesupport (>= 6)
       dotenv
       faraday (>= 1.0)
       faraday_middleware
