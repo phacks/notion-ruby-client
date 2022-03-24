@@ -1,3 +1,9 @@
+### 1.0.0-beta2 (2022-03-24)
+
+#### Fixed
+
+Fixed compat with Rails 7
+
 ### 1.0.0-beta1 (2022-03-24)
 
 #### New
