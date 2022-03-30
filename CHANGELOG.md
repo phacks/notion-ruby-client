@@ -1,3 +1,21 @@
+### 1.0.0 (2022-03-30)
+
+#### New
+
+- Add support for the following new endpoints:
+  - [Delete a block](https://developers.notion.com/reference/get-block-children)
+  - [Retrieve your token's bot user](https://developers.notion.com/reference/get-self)
+  - [Retrieve a page property item](https://developers.notion.com/reference/retrieve-a-page-property)
+- Update Notion API Version to `2022-02-22` (thanks @hkob!)
+- Remove the following deprecated endpoint:
+  - [List databases](https://developers.notion.com/reference/get-databases)
+- Add Codespaces and CONTRIBUTING.md command for better DX
+- Overhauled documentation
+
+### Upgrade instructions
+
+- Please refer to the Notion Changelog to see breaking changes for version `2022-02-22`: https://developers.notion.com/changelog/releasing-notion-version-2022-02-22
+
 ### 1.0.0-beta2 (2022-03-24)
 
 #### Fixed
