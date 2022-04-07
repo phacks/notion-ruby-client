@@ -129,9 +129,9 @@ client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0') do |p
 end
 
 # Filter and sort the database
-sort = [
+sorts = [
   {
-    'property': 'Last ordered',
+    'timestamp': 'created_time',
     'direction': 'ascending'
   }
 ]
@@ -151,7 +151,7 @@ filter = {
     }
   ]
 }
-client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sort: sort, filter: filter)
+client.database_query(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0', sorts: sorts, filter: filter)
 ```
 
 See [Pagination](#pagination) for details about how to iterate through the list.
