@@ -24,8 +24,8 @@ module Notion
     def reset
       self.endpoint = 'https://api.notion.com/v1'
       self.user_agent = "Notion Ruby Client/#{Notion::VERSION}"
-      self.ca_path = defined?(OpenSSL) ? OpenSSL::X509::DEFAULT_CERT_DIR : nil
-      self.ca_file = defined?(OpenSSL) ? OpenSSL::X509::DEFAULT_CERT_FILE : nil
+      self.ca_path = nil
+      self.ca_file = nil
       self.token = nil
       self.proxy = nil
       self.logger = nil
