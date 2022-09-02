@@ -32,7 +32,7 @@ A Ruby client for the Notion API.
     - [Delete a block](#delete-a-block)
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
-  - [Comments](#users)
+  - [Comments](#comments)
     - [Retrieve comments](#retrieve-comments-from-a-page-or-block-by-id)
     - [Create a comment on a page](#create-a-comment-on-a-page)
     - [Create a comment on a discussion](#create-a-comment-on-a-discussion)
@@ -489,6 +489,8 @@ options = {
 }
 client.create_comment(options)
 ```
+
+See the full endpoint documention on [Notion Developers](https://developers.notion.com/reference/comment-object).
 
 ### Users
 
