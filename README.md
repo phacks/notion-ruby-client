@@ -321,7 +321,7 @@ children = [
   },
   {
     'object': 'block',
-    'type": 'paragraph',
+    'type': 'paragraph',
     'paragraph': {
       'rich_text': [
         {
