@@ -2,7 +2,7 @@
 module Notion
   module Faraday
     module Response
-      class RaiseError < ::Faraday::Response::Middleware
+      class RaiseError < ::Faraday::Response::Json
         def on_complete(env)
           raise Notion::Api::Errors::TooManyRequests, env.response if env.status == 429
 
