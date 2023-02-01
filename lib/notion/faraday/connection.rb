@@ -21,11 +21,11 @@ module Notion
             options[:request] = request_options if request_options.any?
 
             ::Faraday::Connection.new(endpoint, options) do |connection|
-              connection.use ::Faraday::Request::Multipart
+              connection.use ::Faraday::Multipart::Middleware
               connection.use ::Faraday::Request::UrlEncoded
               connection.use ::Notion::Faraday::Response::RaiseError
-              connection.use ::FaradayMiddleware::Mashify, mash_class: Notion::Messages::Message
-              connection.use ::FaradayMiddleware::ParseJson
+              connection.use ::Faraday::Mashify::Middleware, mash_class: Notion::Messages::Message
+              connection.use ::Faraday::Response::Json
               connection.use ::Notion::Faraday::Response::WrapError
               connection.response :logger, logger if logger
               connection.adapter adapter
