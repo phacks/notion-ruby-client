@@ -28,8 +28,9 @@ module Notion
         #   updated. Currently only text (for supported block types)
         #   and checked (for to_do blocks) fields can be updated.
         def update_block(options = {})
-          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
-          patch("blocks/#{options[:block_id]}", options.except(:block_id))
+          block_id = options.delete(:block_id)
+          throw ArgumentError.new('Required arguments :block_id missing') if block_id.nil?
+          patch("blocks/#{block_id}", options)
         end
 
         #
@@ -67,7 +68,8 @@ module Notion
               yield page
             end
           else
-            get("blocks/#{options[:block_id]}/children", options.except(:block_id))
+            block_id = options.delete(:block_id)
+            get("blocks/#{block_id}/children", options)
           end
         end
 
@@ -88,8 +90,9 @@ module Notion
         # @option options [[Object]] :children
         #   Children blocks to append
         def block_append_children(options = {})
-          throw ArgumentError.new('Required arguments :block_id missing') if options[:block_id].nil?
-          patch("blocks/#{options[:block_id]}/children", options.except(:block_id))
+          block_id = options.delete(:block_id)
+          throw ArgumentError.new('Required arguments :block_id missing') if block_id.nil?
+          patch("blocks/#{block_id}/children", options)
         end
       end
     end

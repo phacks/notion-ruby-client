@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.homepage = 'http://github.com/orbit-love/notion-ruby-client'
   s.licenses = ['MIT']
   s.summary = 'Notion API client for Ruby.'
-  s.add_dependency 'activesupport', '>= 6'
   s.add_dependency 'dotenv'
   s.add_dependency 'faraday', '>= 1.0'
   s.add_dependency 'faraday-mashify', '>= 0.1.1'

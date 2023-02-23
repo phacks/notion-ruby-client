@@ -60,8 +60,9 @@ module Notion
         #   appears in Notion, or property ID. value object Object containing a value
         #   specific to the property type, e.g. {"checkbox": true}.
         def update_page(options = {})
-          throw ArgumentError.new('Required argument :page_id missing') if options[:page_id].nil?
-          patch("pages/#{options[:page_id]}", options.except(:page_id))
+          page_id = options.delete(:page_id)
+          throw ArgumentError.new('Required argument :page_id missing') if page_id.nil?
+          patch("pages/#{page_id}", options)
         end
 
         #

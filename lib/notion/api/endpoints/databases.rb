@@ -40,7 +40,8 @@ module Notion
               yield page
             end
           else
-            post("databases/#{options[:database_id]}/query", options.except(:database_id))
+            database_id = options.delete(:database_id)
+            post("databases/#{database_id}/query", options)
           end
         end
 
@@ -84,8 +85,9 @@ module Notion
         #   the name of the database property and the value is a property schema object.
         #
         def update_database(options = {})
-          throw ArgumentError.new('Required arguments :database_id missing') if options.dig(:database_id).nil?
-          patch("databases/#{options[:database_id]}", options.except(:database_id))
+          database_id = options.delete(:database_id)
+          throw ArgumentError.new('Required arguments :database_id missing') if database_id.nil?
+          patch("databases/#{database_id}", options)
         end
 
         #
