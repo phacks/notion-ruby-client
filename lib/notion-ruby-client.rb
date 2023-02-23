@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'active_support/core_ext/hash/except'
 require 'faraday'
 require 'faraday/mashify'
 require 'faraday/multipart'
