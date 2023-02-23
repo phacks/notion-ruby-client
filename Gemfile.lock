@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    notion-ruby-client (1.0.0)
+    notion-ruby-client (1.1.0)
       dotenv
-      faraday (>= 1.0)
+      faraday (>= 2.0)
       faraday-mashify (>= 0.1.1)
       faraday-multipart (>= 1.0.4)
       hashie (~> 5)
@@ -17,7 +17,7 @@ GEM
     crack (0.4.5)
       rexml
     diff-lcs (1.4.4)
-    dotenv (2.7.6)
+    dotenv (2.8.1)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)

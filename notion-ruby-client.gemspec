@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.licenses = ['MIT']
   s.summary = 'Notion API client for Ruby.'
   s.add_dependency 'dotenv'
-  s.add_dependency 'faraday', '>= 1.0'
+  s.add_dependency 'faraday', '>= 2.0'
   s.add_dependency 'faraday-mashify', '>= 0.1.1'
   s.add_dependency 'faraday-multipart', '>= 1.0.4'
   s.add_dependency 'hashie', '~> 5'

@@ -1,3 +1,14 @@
+### 1.1.0 (2023-02-23)
+
+#### Breaking changes
+
+- Remove support for ruby 2.5
+- Remove the `activesupport` dependency. Add `gem 'activesupport'` to your Gemfile if you required ActiveSupport via this library.
+
+#### Other
+
+- Upgrade Faraday to v2 (thanks @Tao-Galasse!)
+
 ### 1.0.0 (2022-03-30)
 
 #### New
