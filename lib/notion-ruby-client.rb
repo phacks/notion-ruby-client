@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 require 'active_support/core_ext/hash/except'
 require 'faraday'
-require 'faraday_middleware'
+require 'faraday/mashify'
+require 'faraday/multipart'
 require 'json'
 require 'logger'
 require 'hashie'
