@@ -314,14 +314,14 @@ children = [
     'type': 'heading_2',
     'heading_2': {
       'rich_text': [{
-        'type": 'text',
+        'type': 'text',
         'text': { 'content': 'Lacinato kale' }
       }]
     }
   },
   {
     'object': 'block',
-    'type": 'paragraph',
+    'type': 'paragraph',
     'paragraph': {
       'rich_text': [
         {
