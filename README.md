@@ -277,8 +277,7 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 
 Creates a new page in the specified database or as a child of an existing page.
 
-If the parent is a database, the [property values](https://developers.notion.com/reference-link/page-property-values) of 
-the new page in the properties parameter must conform to the parent [database](https://developers.notion.com/reference-link/database)'s property schema.
+If the parent is a database, the [property values](https://developers.notion.com/reference-link/page-property-values) of the new page in the properties parameter must conform to the parent [database](https://developers.notion.com/reference-link/database)'s property schema.
 
 If the parent is a page, the only valid property is `title`.
 
@@ -349,8 +348,7 @@ client.create_page(
 )
 ```
 
-This example creates a new page as a child of an existing page.  Note that as specified in the Notion API, when creating
-a page as a child of an existing page, the only valid property is ```title```:
+This example creates a new page as a child of an existing page.
 
 ```ruby
 properties = {
