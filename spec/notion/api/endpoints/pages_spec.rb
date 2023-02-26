@@ -47,6 +47,47 @@ RSpec.describe Notion::Api::Endpoints::Pages do
       expect(response.properties.Name.title.first.plain_text).to eql 'Another Notion page'
     end
 
+    context 'when creating under parent page' do
+      let(:parent_page) { '0593a719-ff2e-44aa-a14a-2bf169429284' }
+      let(:properties) do
+        {
+          "title": [
+            {
+              "text": {
+                "content": 'Another Notion page'
+              }
+            }
+          ]
+        }
+      end
+      let(:children) do
+        [
+          {
+            "object": 'block',
+            "type": 'heading_2',
+            "heading_2": {
+              rich_text: [
+                {
+                  type: 'text',
+                  text: { content: 'My Heading 2' }
+                }
+              ]
+            }
+          }
+        ]
+      end
+
+      it 'creates', vcr: { cassette_name: 'create_page_with_parent_page' } do
+        response = client.create_page(
+          parent: { page_id: parent_page },
+          properties: properties,
+          children: children
+        )
+        expect(response.parent.page_id).to eql parent_page
+        expect(response.properties.title.title.first.plain_text).to eql 'Another Notion page'
+      end
+    end
+
     it 'updates', vcr: { cassette_name: 'update_page' } do
       properties = {
         "Name": [
