@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion-ruby-client (1.2.0)
+    notion-ruby-client (1.2.1)
       dotenv
       faraday (>= 2.0)
       faraday-mashify (>= 0.1.1)

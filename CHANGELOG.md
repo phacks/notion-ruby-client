@@ -1,3 +1,9 @@
+### 1.2.1 (2023-02-26)
+
+#### New
+
+- Add support for creating a page as child of another page (thanks @TABeauchat!)
+
 ### 1.2.0 (2023-02-26)
 
 #### New
