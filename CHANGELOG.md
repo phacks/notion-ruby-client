@@ -1,3 +1,11 @@
+### 1.2.0 (2023-02-26)
+
+#### New
+
+- Add support for the following new endpoints (thanks @themoffatt!):
+  - [Create comment](https://developers.notion.com/reference/create-a-comment)
+  - [Retrieve comments](https://developers.notion.com/reference/retrieve-a-comment)
+
 ### 1.1.0 (2023-02-23)
 
 #### Breaking changes
