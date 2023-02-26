@@ -476,8 +476,14 @@ client.retrieve_comments(block_id: '1a2f70ab26154dc7a838536a3f430af4')
 #### Create a comment on a page
 ```ruby
 options = {
-  page_id: '3e4bc91d36c74de595113b31c6fdb82c',
-  comment: 'your comment'
+  parent: { page_id: '3e4bc91d36c74de595113b31c6fdb82c' },
+  rich_text: [
+    {
+      text: {
+        content: 'Hello world'
+      }
+    }
+  ]
 }
 client.create_comment(options)
 ```
@@ -485,7 +491,13 @@ client.create_comment(options)
 ```ruby
 options = {
   discussion_id: 'ea116af4839c410bb4ac242a18dc4392',
-  comment: 'test comment'
+  rich_text: [
+    {
+      text: {
+        content: 'Hello world'
+      }
+    }
+  ]
 }
 client.create_comment(options)
 ```

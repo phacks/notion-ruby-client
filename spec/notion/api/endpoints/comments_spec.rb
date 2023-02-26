@@ -6,13 +6,25 @@ RSpec.describe Notion::Api::Endpoints::Comments do
   let(:discussion_comment) do
     {
       discussion_id: 'ea116af4839c410bb4ac242a18dc4392',
-      comment: 'test comment'
+      rich_text: [
+        {
+          text: {
+            content: 'test comment'
+          }
+        }
+      ]
     }
   end
   let(:page_comment) do
     {
-      page_id: '3e4bc91d36c74de595113b31c6fdb82c',
-      comment: 'test comment'
+      parent: { page_id: '3e4bc91d36c74de595113b31c6fdb82c' },
+      rich_text: [
+        {
+          text: {
+            content: 'test comment'
+          }
+        }
+      ]
     }
   end
 
