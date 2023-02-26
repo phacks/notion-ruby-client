@@ -273,11 +273,14 @@ See the full endpoint documentation on [Notion Developers](https://developers.no
 
 Creates a new page in the specified database or as a child of an existing page.
 
-If the parent is a database, the [property values](https://developers.notion.com/reference-link/page-property-values) of the new page in the properties parameter must conform to the parent [database](https://developers.notion.com/reference-link/database)'s property schema.
+If the parent is a database, the [property values](https://developers.notion.com/reference-link/page-property-values) of 
+the new page in the properties parameter must conform to the parent [database](https://developers.notion.com/reference-link/database)'s property schema.
 
 If the parent is a page, the only valid property is `title`.
 
 The new page may include page content, described as [blocks](https://developers.notion.com/reference-link/block) in the children parameter.
+
+The following example creates a new page within the specified database:
 
 ```ruby
 properties = {
@@ -337,6 +340,55 @@ children = [
 ]
 client.create_page(
    parent: { database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0'},
+   properties: properties,
+   children: children
+)
+```
+
+This example creates a new page as a child of an existing page.  Note that as specified in the Notion API, when creating
+a page as a child of an existing page, the only valid property is ```title```:
+
+```ruby
+properties = {
+  title: [
+    {
+      "type": "text",
+      "text": {
+        "content": "My favorite food",
+        "link": null
+      }
+    }
+  ]
+}
+children = [
+  {
+    'object': 'block',
+    'type': 'heading_2',
+    'heading_2': {
+      'rich_text': [{
+        'type': 'text',
+        'text': { 'content': 'Lacinato kale' }
+      }]
+    }
+  },
+  {
+    'object': 'block',
+    'type': 'paragraph',
+    'paragraph': {
+      'rich_text': [
+        {
+          'type': 'text',
+          'text': {
+            'content': 'Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.',
+            'link': { 'url': 'https://en.wikipedia.org/wiki/Lacinato_kale' }
+          }
+        }
+      ]
+    }
+  }
+]
+client.create_page(
+   parent: { page_id: 'feb1cdfaab6a43cea4ecbc9e8de63ef7'},
    properties: properties,
    children: children
 )
