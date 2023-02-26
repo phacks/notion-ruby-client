@@ -32,6 +32,10 @@ A Ruby client for the Notion API.
     - [Delete a block](#delete-a-block)
     - [Retrieve block children](#retrieve-block-children)
     - [Append block children](#append-block-children)
+  - [Comments](#comments)
+    - [Retrieve comments](#retrieve-comments-from-a-page-or-block-by-id)
+    - [Create a comment on a page](#create-a-comment-on-a-page)
+    - [Create a comment on a discussion](#create-a-comment-on-a-discussion)
   - [Users](#users)
     - [Retrieve your token's bot user](#retrieve-your-tokens-bot-user)
     - [Retrieve a user](#retrieve-a-user)
@@ -514,6 +518,43 @@ client.block_append_children(block_id: 'b55c9c91-384d-452b-81db-d1ef79372b75', c
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/patch-block-children).
+
+### Comments
+
+#### Retrieve comments from a page or block by id
+```ruby
+client.retrieve_comments(block_id: '1a2f70ab26154dc7a838536a3f430af4')
+```
+#### Create a comment on a page
+```ruby
+options = {
+  parent: { page_id: '3e4bc91d36c74de595113b31c6fdb82c' },
+  rich_text: [
+    {
+      text: {
+        content: 'Hello world'
+      }
+    }
+  ]
+}
+client.create_comment(options)
+```
+#### Create a comment on a discussion
+```ruby
+options = {
+  discussion_id: 'ea116af4839c410bb4ac242a18dc4392',
+  rich_text: [
+    {
+      text: {
+        content: 'Hello world'
+      }
+    }
+  ]
+}
+client.create_comment(options)
+```
+
+See the full endpoint documention on [Notion Developers](https://developers.notion.com/reference/comment-object).
 
 ### Users
 
