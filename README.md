@@ -20,7 +20,6 @@ A Ruby client for the Notion API.
     - [Create a Database](#create-a-database)
     - [Update a Database](#update-a-database)
     - [Retrieve a database](#retrieve-a-database)
-    - [List databases](#list-databases)
   - [Pages](#pages)
     - [Retrieve a page](#retrieve-a-page)
     - [Create a page](#create-a-page)
@@ -240,24 +239,6 @@ client.database(database_id: 'e383bcee-e0d8-4564-9c63-900d307abdb0')
 ```
 
 See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/retrieve-a-database).
-
-#### List databases
-
-List all [Databases](https://developers.notion.com/reference-link/database) shared with the authenticated integration.
-
-```ruby
-client.databases_list # retrieves the first page
-
-client.databases_list(start_cursor: 'fe2cc560-036c-44cd-90e8-294d5a74cebc')
-
-client.databases_list do |page|
-  # paginate through all databases
-end
-```
-
-See [Pagination](#pagination) for details about how to iterate through the list.
-
-See the full endpoint documentation on [Notion Developers](https://developers.notion.com/reference/list-databases).
 
 ### Pages
 
