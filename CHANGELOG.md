@@ -1,3 +1,10 @@
+### 1.2.2 (2023-10-02)
+
+#### Improved
+
+- Remove `dotenv` as a runtime dependency (@sinsoku, #49)
+- Remove the outdated mention of the List Databases enpoint in the README (@soruma, #48)
+
 ### 1.2.1 (2023-02-26)
 
 #### New
