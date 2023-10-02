@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     notion-ruby-client (1.2.1)
-      dotenv
       faraday (>= 2.0)
       faraday-mashify (>= 0.1.1)
       faraday-multipart (>= 1.0.4)
@@ -79,6 +78,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dotenv
   notion-ruby-client!
   rake (~> 13)
   rspec
