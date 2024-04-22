@@ -21,7 +21,7 @@ bundle exec rake
 You can also install the project on your machine:
 
 ```
-git clone https://github.com/orbit-love/notion-ruby-client.git
+git clone https://github.com/phacks/notion-ruby-client.git
 cd notion-ruby-client
 # if you do not have bundler installed already, run
 # $ gem install bundle
