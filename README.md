@@ -9,7 +9,7 @@ A Ruby client for the Notion API.
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Create a New Bot Integration](#create-a-new-bot-integration)
+  - [Create a New Integration](#create-a-new-integration)
   - [Declare the API token](#declare-the-api-token)
   - [API Client](#api-client)
     - [Instantiating a new Notion API client](#instantiating-a-new-notion-api-client)
